@@ -1,2 +1,12 @@
 <?php 
-//$products = Product::getAllProducts();
+require('../classes/classProducts.php');
+include('header.php');
+
+Product::getAllProducts();
+
+
+
+
+
+
+include('footer.php');
