@@ -31,7 +31,7 @@ class Product{
       if ($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
             $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price']);
-            echo '<pre>'; var_dump($product); echo '</pre>';
+            // echo '<pre>'; var_dump($product); echo '</pre>';
             $allProducts[] = $product;     
          }
          $conn->close();

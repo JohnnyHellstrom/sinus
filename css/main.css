@@ -1,0 +1,37 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+html{
+   font-size: 16px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+section .product-cards{
+   width: 100%; 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   flex-grow: 1;
+}
+.product-cards .card{
+   float:left;
+   width: 200px;
+   height: 350px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 1rem;
+}
+.product-cards .image-container{
+   height: 70%;
+}
+img:hover{
+   cursor: pointer;
+}
+.product-cards h3{
+   margin-top: 0.5rem;
+}

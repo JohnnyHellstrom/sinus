@@ -7,6 +7,7 @@
    <meta name="author" content="Power Guardians">
    <link rel="icon" href="./images/sinus-logo-symbol - small.png">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+   <link rel="stylesheet" href="../css/main.css">
    <title>Sinus</title>
 
 </head>
