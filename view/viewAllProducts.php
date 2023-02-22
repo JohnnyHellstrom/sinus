@@ -21,7 +21,7 @@ $products = Product::getAllProducts();
                <input type="image" src="../images/hoodie-ash.png" alt="submit" style="width:100%; max-height: 100%">
             </div>
             <h3><?= $title ?></h3>
-            <p><?= $price ?>kr</p>
+            <p><?= $price . " " ?>kr</p>
             <p><?= $color ?></p>
          </div>
       </form>
