@@ -5,6 +5,7 @@ include('header.php');
 $products = Product::getAllProducts();
 
 ?>
+<main>
 <section class="product-cards">
 
       <?php
@@ -29,9 +30,7 @@ $products = Product::getAllProducts();
    
 </section>
 
-
-
-
+</main>
 <?php
 
 include('footer.php');
