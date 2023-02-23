@@ -14,4 +14,5 @@
 <body>
    <header>
       <h1>Sinus Skate and Apperal Shop</h1>
+      <div>🛒</div>
    </header>

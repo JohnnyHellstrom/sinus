@@ -9,20 +9,50 @@ class Product{
    private $color;
    private $price;
    private $image;
+   private $description;
+   private $qty;
 
-   public function __construct($id, $title, $category, $color, $price, $image = null){
+   public function __construct($id, $title, $category, $color, $price, $description, $qty = null, $image = null){
       $this->productid = $id;
       $this->title = $title;
       $this->category = $category;
       $this->color = $color;
       $this->price = $price;
       $this->image = $image;
+      $this->qty = $qty;
+      $this->description = $description;
+   }
+
+   public static function getProduct($id){
+      $conn = DB::connect();
+
+      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price, p.description FROM products p
+         JOIN colors c ON c.colorid = p.colorid
+         JOIN categories k ON k.categoryid = p.categoryid
+         WHERE p.productid = ?";
+   
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("i", $id);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      if($result->num_rows > 0){
+         $row = $result->fetch_assoc();
+         $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description']);
+         $stmt->close(); 
+         $conn->close();
+         return $product;
+      } else {
+         $stmt->close(); 
+         $conn->close();
+         return null;
+      }
    }
 
    public static function getAllProducts(){
       $conn = DB::connect();
 
-      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price FROM products p
+      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price, p.description FROM products p
          JOIN colors c ON c.colorid = p.colorid
          JOIN categories k ON k.categoryid = p.categoryid";
 
@@ -30,8 +60,7 @@ class Product{
 
       if ($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
-            $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price']);
-            // echo '<pre>'; var_dump($product); echo '</pre>';
+            $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description']);
             $allProducts[] = $product;     
          }
          $conn->close();
@@ -39,12 +68,9 @@ class Product{
       } else {
          $conn->close();
          return array();
-
       } 
 
    }
-
-
 
    public function getProductid(){
       return $this->productid;
@@ -63,5 +89,14 @@ class Product{
    }
    public function getImage(){
       return $this->image;
+   }
+   public function getQty(){
+      return $this->qty;
+   }
+   public function setQty($qty){
+      $this->qty = $qty;
+   }
+   public function getDescription(){
+      return $this->description;
    }
 }

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require('../classes/classProducts.php');
 include('header.php');
 
