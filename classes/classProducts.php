@@ -23,6 +23,11 @@ class Product{
       $this->description = $description;
    }
 
+   public static function addProduct($product){
+
+      
+   }
+
    public static function getProduct($id){
       $conn = DB::connect();
 

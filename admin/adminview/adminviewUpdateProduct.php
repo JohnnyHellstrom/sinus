@@ -25,6 +25,10 @@ $product = Product::getProduct($_POST['id']);
     <label for="description">Description:</label>
     <textarea rows="4" cols="50" name="description" required><?= $product->getDescription() ?></textarea>
 
+    <div style="height:50px; width:50px">
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product->getImage()); ?>" alt="<?= $product->getTitle() ?>" style="width:100%; max-height: 100%">
+    </div>
+
     <label>Select Image File:</label>
     <input type="hidden" name="action" value="addimage">
     <input type="file" name="image">
