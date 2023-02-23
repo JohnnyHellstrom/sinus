@@ -41,3 +41,6 @@ img:hover{
 .product-cards h3{
    margin-top: 0.5rem;
 }
+input[type=text]{
+   width: 25%;
+}
