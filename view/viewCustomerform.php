@@ -5,18 +5,27 @@ include('header.php');
 
 <h2>Fill in your information</h2>
 
-<a href=".">returning customer?</a>
 
+<!--
+  <form action="../customerinfo.php" method="post">
+    <input type="hidden" name="action" value="customerinfo">
+    <label for="email">returning customer? input email:</label>
+    <input type="email" name="email" required>
+  </form>
 
+  or 
+  a ref to another site...
+-->
 <fieldset>
   <legend></legend>
-  <form action="." method="post">
+  <form action="../customerinfo.php" method="post">
+    <input type="hidden" name="action" value="customerinfo">
     <label for="firstname">First name:</label>
     <input type="text" name="firstname" required>
     <label for="lastname">Last name:</label>
     <input type="text" name="lastname" required>
     <label for="email">Email:</label>
-    <input type="text" name="email" required>
+    <input type="email" name="email" required>
     <label for="phone">Phone number:</label>
     <input type="text" name="phone" required>
     <label for="streetadress">Adress:</label>
