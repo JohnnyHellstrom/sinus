@@ -4,6 +4,10 @@ include('header.php');
 ?>
 
 <h2>Fill in your information</h2>
+
+<a href=".">returning customer?</a>
+
+
 <fieldset>
   <legend></legend>
   <form action="." method="post">
@@ -26,3 +30,7 @@ include('header.php');
     <button>Order</button>       
   </form>
 </fieldset>
+
+<?php
+include('footer.php');
+?>
