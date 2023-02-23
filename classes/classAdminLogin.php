@@ -1,27 +1,21 @@
 <?php
-require_once('classes/classDB.php');
+require_once('../classes/classDB.php');
 
 class User
 {
-  private $userHandle;
-  private $userEmail;
+  private $username;
   private $userPassword;
 
-  public function __construct($userHandle, $userEmail, $userPassword)
+  public function __construct($username, $userPassword)
   {
-    $this->userHandle = $userHandle;
-    $this->userEmail = $userEmail;
+    $this->username = $username;
     $this->userPassword = $userPassword;
   }
 
-  public function getUserHandle()
-  {
-    return $this->userHandle;
-  }
 
-  public function getUserEmail()
+  public function getUsername()
   {
-    return $this->userEmail;
+    return $this->username;
   }
 
   public function getUserPassword()
@@ -37,11 +31,10 @@ class User
       die("Connection failed: " . $mysqli->connect_error);
     } 
     
-    $statement = $mysqli->prepare('INSERT INTO users (handle, email, password) values (?,?,?)');
-    $statement->bind_param('sss', $handle, $email, $password);
+    $statement = $mysqli->prepare('INSERT INTO admin (username, password) values (?,?)');
+    $statement->bind_param('ss', $username, $password);
     
-    $handle = $this->getUserHandle();
-    $email = $this->getUserEmail();    
+    $username = $this->getUsername();    
     $password1 = $this->getUserPassword();
     $password = password_hash($password1, PASSWORD_DEFAULT);
 
@@ -55,10 +48,10 @@ class User
   {
     $mysqli = DB::connect();      
       
-    $statement = $mysqli->prepare('SELECT handle, email, password FROM users where handle = ?');
-    $statement->bind_param('s', $handle);    
+    $statement = $mysqli->prepare('SELECT username, password FROM admin where username = ?');
+    $statement->bind_param('s', $username);    
     
-    $handle = $this->getUserHandle();
+    $username = $this->getUsername();
     $password = $this->getUserPassword();
 
     $statement->execute();
@@ -72,13 +65,13 @@ class User
     session_start();
     if($password = password_verify($password, $row['password']))
     {
-      $_SESSION['handle'] = $handle;      
+      $_SESSION['username'] = $username;      
       header('location: index.php');      
     }
     else
     {       
       $_SESSION['error'] = 'something went wrong!';
-      header('location: view/loginform.php');
+      header('location: adminview/loginform.php');
     }
   }
 }

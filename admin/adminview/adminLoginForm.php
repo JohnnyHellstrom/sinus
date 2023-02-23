@@ -6,12 +6,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
    <link rel="stylesheet" href="../css/main.css">
-   <link rel="icon" href="../images/donut.png" >
+   <link rel="icon" href="../images/sinus-logo-symbol - small.png" >
    <title>Login</title>
 </head>
 <body>
    <header>
-      <h1>Login to Prague Parking</h1>      
+      <h1>Login to Sinus Skateshop</h1>      
    </header>
 
    <?php 
@@ -25,7 +25,7 @@
 
    <main>      
       <fieldset>         
-         <form method="post" action="../login.php">
+         <form method="post" action="../adminLogin.php">
          <label for="user">User</label>
          <input type="text" name="user" required>
          <label for="password">Password</label>
@@ -34,6 +34,6 @@
     </form>
       </fieldset>
    </main>
-   <a href="./signupform.php">do you need an account?</a>
+   <a href="./adminSignupform.php">do you need an account?</a>
 </body>
 </html>

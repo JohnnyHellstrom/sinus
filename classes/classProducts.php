@@ -12,7 +12,7 @@ class Product{
    private $description;
    private $qty;
 
-   public function __construct($id, $title, $category, $color, $price, $description, $qty = null, $image = null){
+   public function __construct($id, $title, $category, $color, $price, $description, $image = null, $qty = null){
       $this->productid = $id;
       $this->title = $title;
       $this->category = $category;
@@ -26,9 +26,11 @@ class Product{
    public static function getProduct($id){
       $conn = DB::connect();
 
-      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price, p.description FROM products p
+      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price, p.description, i.image 
+         FROM products p
          JOIN colors c ON c.colorid = p.colorid
          JOIN categories k ON k.categoryid = p.categoryid
+         JOIN images i ON i.productid = p.productid
          WHERE p.productid = ?";
    
       $stmt = $conn->prepare($sql);
@@ -38,7 +40,7 @@ class Product{
 
       if($result->num_rows > 0){
          $row = $result->fetch_assoc();
-         $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description']);
+         $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description'], $row['image']);
          $stmt->close(); 
          $conn->close();
          return $product;
@@ -52,15 +54,17 @@ class Product{
    public static function getAllProducts(){
       $conn = DB::connect();
 
-      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price, p.description FROM products p
-         JOIN colors c ON c.colorid = p.colorid
-         JOIN categories k ON k.categoryid = p.categoryid";
+      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price, p.description, i.image 
+      FROM products p
+      JOIN colors c ON c.colorid = p.colorid
+      JOIN categories k ON k.categoryid = p.categoryid
+      JOIN images i ON i.productid = p.productid";
 
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
-            $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description']);
+            $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description'], $row['image']);
             $allProducts[] = $product;     
          }
          $conn->close();

@@ -1,7 +1,7 @@
 <?php
 
   
-  require_once('classes/classAdminLogin.php');
+  require_once('../classes/classAdminLogin.php');
 
   $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW); 
   $user = filter_input(INPUT_POST, 'user', FILTER_UNSAFE_RAW); 
@@ -21,4 +21,4 @@
 
 
 <h2>Creating an account was a SUCCESS, lets try to login now!</h2>
-<button><a href="view/loginform.php">Go to Login</a></button>
+<button><a href="adminview/adminLoginform.php">Go to Login</a></button>
