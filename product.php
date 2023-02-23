@@ -2,18 +2,21 @@
 session_start();
 include('view/header.php');
 
-
+//var_dump($_SESSION['cart']);
 // unset($_SESSION);
 // session_destroy();
-if(array_key_exists($_SESSION["product"], $_SESSION["cart"])){
-   $_SESSION["cart"][$_SESSION["product"]] += (int)$_POST['quantity'];
-} else {
-   if(isset($_SESSION["cart"])){
-      $_SESSION["cart"] += array($_SESSION["product"] => (int)$_POST['quantity']);
+
+if(isset($_SESSION["cart"])){
+   if(array_key_exists($_SESSION["product"], $_SESSION["cart"])){
+      $_SESSION["cart"][$_SESSION["product"]] += (int)$_POST['quantity'];
    } else {
-      $_SESSION["cart"] = array($_SESSION["product"] => (int)$_POST['quantity']);
+      $_SESSION["cart"] += array($_SESSION["product"] => (int)$_POST['quantity']);
    }
+} else {
+   $_SESSION["cart"] = array($_SESSION["product"] => (int)$_POST['quantity']);
 }
+
+
 
 
 
