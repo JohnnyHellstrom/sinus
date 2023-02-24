@@ -1,5 +1,5 @@
 <?php
-require_once('../classes/classDB.php');
+//require_once('../classes/classDB.php');
 
 class User
 {

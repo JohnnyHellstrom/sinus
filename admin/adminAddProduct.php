@@ -1,6 +1,6 @@
 <?php
 require('../classes/classDataWash.php');
-require('../classes/classProducts.php');
+require('../classes/classDBClasses.php');
 
 $title = DataWash::testInput(filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW)); 
 $category = DataWash::testInput(filter_input(INPUT_POST, 'category', FILTER_UNSAFE_RAW)); 

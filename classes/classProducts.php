@@ -1,6 +1,6 @@
 <?php
 
-require('classDB.php');
+//require('classDB.php');
 
 class Product{
    private $productid;

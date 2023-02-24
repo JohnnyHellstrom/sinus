@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('../classes/classProducts.php');
+require('../classes/classDBClasses.php');
 include('header.php');
 
 $productid = (int)filter_input(INPUT_POST,'id',FILTER_UNSAFE_RAW);

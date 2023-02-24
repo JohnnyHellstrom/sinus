@@ -1,5 +1,5 @@
 <?php
-require_once('classDB.php');
+//require_once('classDB.php');
 
 
 class Customer{

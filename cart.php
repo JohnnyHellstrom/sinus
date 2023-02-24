@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/main.css">
 <?php
 session_start();
-require('classes/classProducts.php');
+require('classes/classDBClasses.php');
 
 if(isset($_POST['edit']) && ($_POST['edit'] == "✏️")){
    include('view/viewEditCart.php');

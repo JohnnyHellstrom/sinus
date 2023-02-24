@@ -1,7 +1,7 @@
 <?php
 
   
-  require_once('../classes/classAdminLogin.php');
+  require('../classes/classDBClasses.php');
 
   $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW); 
   $user = filter_input(INPUT_POST, 'user', FILTER_UNSAFE_RAW); 

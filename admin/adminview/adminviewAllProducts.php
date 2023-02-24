@@ -1,7 +1,7 @@
 
 
 <?php
-require('../../classes/classProducts.php');
+require('../../classes/classDBClasses.php');
 include('adminheader.php');
 $products = Product::getAllProducts();
 ?>

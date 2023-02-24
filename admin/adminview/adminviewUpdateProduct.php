@@ -1,6 +1,6 @@
 <?php
 include('adminheader.php');
-require('../../classes/classProducts.php');
+require('../../classes/classDBClasses.php');
 
 $product = Product::getProduct($_POST['id']);
 

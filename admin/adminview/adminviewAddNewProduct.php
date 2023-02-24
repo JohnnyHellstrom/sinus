@@ -1,7 +1,10 @@
 <?php
 include('adminheader.php');
-require('../../classes/classProducts.php');
 
+require('../../classes/classDBClasses.php');
+
+$colors = Color::getAllColors();
+$products = Product::getAllProducts();
 ?>
 
 <fieldset>
@@ -15,7 +18,11 @@ require('../../classes/classProducts.php');
     <input type="text" name="category" required>
 
     <label for="color">Color:</label>
-    <input type="text" name="color" required>
+    <select name="color" id="color" required>
+      <?php foreach($colors as $color){  ?>
+      <option value="<?= $color->getColorname() ?>"><?= strtoupper($color->getColorname()) ?></option>
+      <?php } ?>
+    </select>
     
     <label for="price">Price:</label>
     <input type="text" name="price"  required>

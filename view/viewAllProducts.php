@@ -1,6 +1,7 @@
 <?php 
 session_start();
-require('../classes/classProducts.php');
+require('../classes/classDBClasses.php');
+
 include('header.php');
 
 $products = Product::getAllProducts();

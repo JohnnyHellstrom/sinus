@@ -1,5 +1,5 @@
 <?php
-require('../classes/classImage.php');
+require('../classes/classDBClasses.php');
 
 $id = filter_input(INPUT_POST, 'id', FILTER_UNSAFE_RAW); 
 $title = filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW); 
