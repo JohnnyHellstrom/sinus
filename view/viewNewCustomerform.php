@@ -9,7 +9,7 @@ include('header.php');
   <form action="../customerinfo.php" method="post">
     <input type="hidden" name="action" value="newcustomerinfo">
     <label for="firstname">First name:</label>
-    <input type="text" name="firstname" required>
+    <input type="text" name="firstname" value="<?= $firstname ?>" required>
     <label for="lastname">Last name:</label>
     <input type="text" name="lastname" required>
     <label for="email">Email:</label>

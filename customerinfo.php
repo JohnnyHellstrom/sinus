@@ -1,5 +1,6 @@
 <?php
 require_once('classes/classDBClasses.php');
+session_start();
 
 
 $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW); 
@@ -22,24 +23,24 @@ $zipcode = DataWash::testInput($zipcode);
 $city = DataWash::testInput($city);
 $country = DataWash::testInput($country);
 
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
-
 switch($action)
 {
   case 'oldcustomerinfo':
-    // input order
+    // getting customer id
+    $customerId = Customer::retrieveCustomerId($_POST['email']);
+    echo '<pre>';
+    var_dump($customerId['customerid']);
+    echo '</pre>';
+    // update order and order details
     break;
 
   case 'newcustomerinfo':
     $newCustomer = new Customer(ucfirst($firstname), ucfirst($lastname), strtolower($email), $phone, ucfirst($streetadress), $zipcode, ucfirst($city), ucfirst($country));
-    $newCustomer->insertInfoToDB();
+    $lastId = $newCustomer->insertInfoToDB();
     break;
   
   case 'existingcustomer':   
-    $email = $_POST['email'];
-    $oldCustomer = Customer::retrieveCustomerInfo($email);
+    $_SESSION['oldEmail'] = $_POST['email'];    
     header('location: view/viewExistingCustomerform.php');   
     break;
 }

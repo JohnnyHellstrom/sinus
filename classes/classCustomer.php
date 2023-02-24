@@ -4,6 +4,7 @@
 
 class Customer{
 
+ 
   private $firstName;
   private $lastName;
   private $email;
@@ -14,7 +15,7 @@ class Customer{
   private $country;
 
   function __construct($firstName,$lastName,$email,$phone,$adress,$zipcode,$city,$country)
-  {
+  {    
     $this->firstName = $firstName;
     $this->lastName = $lastName;
     $this->email = $email;
@@ -88,7 +89,7 @@ class Customer{
   {
     $conn = DB::connect();
 
-    $sql = $conn->prepare('SELECT firstname,lastname,email,phone,streetadress,zipcode,city,country FROM customers WHERE email = ?');
+    $sql = $conn->prepare('SELECT * FROM customers WHERE email = ?');
     $sql->bind_param('s', $email);
    
     $sql->execute();
@@ -105,6 +106,23 @@ class Customer{
        $conn->close();
        return null;
     }
+  }
+
+  public static function retrieveCustomerId($email)
+  {
+    $conn = DB::connect();
+
+    $sql = $conn->prepare('SELECT customerid FROM customers WHERE email = ?');
+    $sql->bind_param('s', $email);
+   
+    $sql->execute();
+    $result = $sql->get_result();
+    $row = $result->fetch_assoc();
+
+    $sql->close(); 
+    $conn->close();
+
+    return $row;
   }
 }
 
