@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="../css/main.css">
 <footer>
 <section class="container">
             <article class="nav">
                 <h2>Nav</h2>
                 <ul>
-                    <li><a href="#">Products</a></li>
+                    <li><a href="../view/viewAllProducts.php">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>   
