@@ -1,14 +1,10 @@
 <?php
-include('adminheader.php');
-require('../../classes/classDBClasses.php');
-
 $product = Product::getProduct($_POST['id']);
-
 ?>
 
 <fieldset>
   <legend>Update Product</legend>
-  <form action="../adminUpdateProduct.php" enctype="multipart/form-data" method="post">
+  <form action="<?php $_SERVER['PHP_SELF']?>" enctype="multipart/form-data" method="post">
   <input type="hidden" name="id" value="<?= $_POST['id'] ?>">
     <label for="title">Product Name:</label>
     <input type="text" name="title" value="<?= $product->getTitle() ?>" required>

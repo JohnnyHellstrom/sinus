@@ -1,30 +1,26 @@
 <?php
-include('adminheader.php');
-
-require('../../classes/classDBClasses.php');
-
 $colors = Color::getAllColors();
 $categorys = Category::getAllCategories(); 
 ?>
 
 <fieldset>
   <legend>Add Product</legend>
-  <form action="../adminAddProduct.php" enctype="multipart/form-data" method="post">
+  <form action="<?php $_SERVER['PHP_SELF']?>" enctype="multipart/form-data" method="post">
 
     <label for="title">Product Name:</label>
     <input type="text" name="title" required>
 
-    <label for="category">Category:</label>
-    <select name="category" id="category" required>
+    <label for="categoryid">Category:</label>
+    <select name="categoryid" id="categoryid" required>
       <?php foreach($categorys as $category){  ?>
-      <option value="<?= $category->getCategoryid() ?>"><?= strtoupper($category->getCategoryname()) ?></option>
+      <option value="<?= $category->getCategoryid() ?>"><?= ucfirst($category->getCategoryname()) ?></option>
       <?php } ?>
     </select>
 
-    <label for="color">Color:</label>
-    <select name="color" id="color" required>
+    <label for="colorid">Color:</label>
+    <select name="colorid" id="colorid" required>
       <?php foreach($colors as $color){  ?>
-      <option value="<?= $color->getColorid() ?>"><?= strtoupper($color->getColorname()) ?></option>
+      <option value="<?= $color->getColorid() ?>"><?= ucfirst($color->getColorname()) ?></option>
       <?php } ?>
     </select>
     
@@ -40,5 +36,20 @@ $categorys = Category::getAllCategories();
 
     <button>Add</button>       
   </form>
-
+</fieldset>
+<fieldset>
+  <legend>Add Color</legend>
+  <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
+    <label for="color">Color:</label>
+    <input type="text" name="color">
+    <button>Add</button>
+  </form>
+</fieldset>
+<fieldset>
+  <legend>Add Category</legend>
+  <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
+    <label for="category">Category:</label>
+    <input type="text" name="category">
+    <button>Add</button>
+  </form>
 </fieldset>

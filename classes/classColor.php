@@ -26,6 +26,20 @@ class Color{
       $conn->close();
       return $colors;
    }
+   public static function InsertNewColor($color){
+      $conn = DB::connect();
+
+      $stmt = $conn->prepare("INSERT INTO colors (colorname) VALUES (?)");
+      $stmt->bind_param("s", $color);
+      try{
+         $stmt->execute();
+      } catch (Exception $e){
+         echo $e->getMessage();
+      }
+      
+      $stmt->close(); 
+      $conn->close();
+   }
 
    public function getColorname(){
      return $this->colorname;

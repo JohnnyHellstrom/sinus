@@ -24,8 +24,24 @@ class Product{
    }
 
    public static function addProduct($product){
+      $conn = DB::connect();
 
-      
+      $title = $product->getTitle();
+      $category = $product->getCategory();
+      $color = $product->getColor();
+      $price = $product->getPrice();
+      $description = $product->getDescription();
+      $stmt = $conn->prepare("INSERT INTO products (title, categoryid, colorid, price, description) VALUES (?,?,?,?,?)");
+      $stmt->bind_param("siids",$title ,$category ,$color ,$price ,$description);
+      try{
+         $stmt->execute();
+      } catch (Exception $e){
+         echo $e->getMessage();
+      }
+      $id = $stmt->insert_id;
+      $stmt->close(); 
+      $conn->close(); 
+      return $id;
    }
 
    public static function getProduct($id){

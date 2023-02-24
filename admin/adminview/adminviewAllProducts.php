@@ -1,11 +1,6 @@
-
-
 <?php
-require('../../classes/classDBClasses.php');
-include('adminheader.php');
 $products = Product::getAllProducts();
 ?>
-
 
 <table class="cart-table">
 <thead>
@@ -19,10 +14,9 @@ $products = Product::getAllProducts();
    </tr>
 </thead>
 <tbody>
-   <?php 
-      foreach ($products as $product) { 
-   ?>
-   <form action="adminviewUpdateProduct.php" method="post">
+   <?php foreach ($products as $product) { ?>
+      
+   <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
    <input type="hidden" name="id" value="<?= $product->getProductid() ?>">
    <tr>
       <td><div style="height:50px; width:50px">

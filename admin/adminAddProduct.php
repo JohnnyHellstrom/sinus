@@ -1,17 +1,27 @@
 <?php
-require('../classes/classDataWash.php');
 require('../classes/classDBClasses.php');
+include('adminview/adminheader.php');
+include('adminview/adminviewAddNewProduct.php');
+
+$color = DataWash::testInput(filter_input(INPUT_POST, 'color', FILTER_UNSAFE_RAW)); 
+$category = DataWash::testInput(filter_input(INPUT_POST, 'category', FILTER_UNSAFE_RAW)); 
+if($color){
+   $success = Color::InsertNewColor($color);
+}
+if($category){
+   $success = Category::InsertNewCategory($category);
+}
 
 $title = DataWash::testInput(filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW)); 
-$category = DataWash::testInput(filter_input(INPUT_POST, 'category', FILTER_UNSAFE_RAW)); 
-$color = DataWash::testInput(filter_input(INPUT_POST, 'color', FILTER_UNSAFE_RAW)); 
-$price = DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_UNSAFE_RAW)); 
+$categoryid = (int)DataWash::testInput(filter_input(INPUT_POST, 'categoryid', FILTER_UNSAFE_RAW)); 
+$colorid = (int)DataWash::testInput(filter_input(INPUT_POST, 'colorid', FILTER_UNSAFE_RAW)); 
+$price = (double)DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_UNSAFE_RAW)); 
 $description = DataWash::testInput(filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW)); 
 
-$produkt = new Product(0, $title, $category, $color, $price, $description);
-$id = Product::addProduct($produkt);
-
-
+if($title && $categoryid && $colorid && $price && $description){
+   $produkt = new Product(0, $title, $categoryid, $colorid, $price, $description);
+   $id = Product::addProduct($produkt);
+}
 
 // Check image and insert image and productid to imagetable.
 if(!empty($_FILES["image"]["name"])) { 
@@ -24,7 +34,7 @@ if(!empty($_FILES["image"]["name"])) {
    if(in_array($fileType, $allowTypes)){ 
       $image = $_FILES['image']['tmp_name']; 
       $imgContent = addslashes(file_get_contents($image)); 
-      $id = $_POST['id'];
+      //$id = $_POST['id'];
       Image::addImage($imgContent, $id);
 
    } else { 

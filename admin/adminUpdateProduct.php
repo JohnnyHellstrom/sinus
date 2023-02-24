@@ -1,5 +1,12 @@
 <?php
 require('../classes/classDBClasses.php');
+include('adminview/adminheader.php');
+
+if(isset($_POST['id'])){
+   include('adminview/adminviewUpdateProduct.php');
+} else {
+   include('adminview/adminviewAllProducts.php');
+}
 
 $id = filter_input(INPUT_POST, 'id', FILTER_UNSAFE_RAW); 
 $title = filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW); 

@@ -1,13 +1,11 @@
 <?php
-
 include('adminview/adminheader.php');
-
 ?>
 <button>
-   <a href="adminview/adminviewAllProducts.php">See all products</a>
+   <a href="adminAddProduct.php">Add product</a>
 </button>
-
-
 <button>
-   <a href="adminview/adminviewAddNewProduct.php">Add product</a>
+   <a href="adminUpdateProduct.php">Update product</a>
 </button>
+
+
