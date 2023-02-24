@@ -4,7 +4,7 @@ include('adminheader.php');
 require('../../classes/classDBClasses.php');
 
 $colors = Color::getAllColors();
-$products = Product::getAllProducts();
+$categorys = Category::getAllCategories(); 
 ?>
 
 <fieldset>
@@ -15,12 +15,16 @@ $products = Product::getAllProducts();
     <input type="text" name="title" required>
 
     <label for="category">Category:</label>
-    <input type="text" name="category" required>
+    <select name="category" id="category" required>
+      <?php foreach($categorys as $category){  ?>
+      <option value="<?= $category->getCategoryid() ?>"><?= strtoupper($category->getCategoryname()) ?></option>
+      <?php } ?>
+    </select>
 
     <label for="color">Color:</label>
     <select name="color" id="color" required>
       <?php foreach($colors as $color){  ?>
-      <option value="<?= $color->getColorname() ?>"><?= strtoupper($color->getColorname()) ?></option>
+      <option value="<?= $color->getColorid() ?>"><?= strtoupper($color->getColorname()) ?></option>
       <?php } ?>
     </select>
     
