@@ -20,5 +20,12 @@ tror vi alla var nöjda med dagen, och vad vi fick presterat tillsammans.
 
 dag 3, fredag:
 
+Jobbat lite med headern, att få kundvagnen att displaya.
+hittat lite med requires som vi fick löst, färdigställt lite formulär, lagt till mer funktionalitet för admin delen, att man kan lägga in produkter, färg/kategori. lite snickeri helt enkelt har dagen varit.
+
+
 -- ta upp varför, vi plockar fram datan jämtemot email adress, förstå faran med varför vi gör så här istället för å ha login.
+
+-- Bra sen om vi orkar skydda sidorna. Alla admin ifall man inte är inloggad. Sen redirects på alla views osv 
+
 
