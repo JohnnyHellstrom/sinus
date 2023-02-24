@@ -4,6 +4,7 @@ if(isset($_POST['edit']) && ($_POST['edit'] == "✏️")){
    $_SESSION['qty'] = $_POST['qty'];
 }
 $product = Product::getProduct($_SESSION['id']);
+$image = $product->getImage();
 
 ?>
    <table class="cart-table">
@@ -23,7 +24,7 @@ $product = Product::getProduct($_SESSION['id']);
       <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
          <tr>
             <td><div style="height:50px; width:50px">
-               <img src="images/hoodie-green.png" alt="<?= $product->getTitle() ?>" style="width:100%; max-height: 100%">
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>" alt="<?= $product->getTitle() ?>" style="width:100%; max-height: 100%">
             </div></td>
             <td><?= $product->getTitle() ?></td>
             <td><?= $product->getColor() ?></td>
