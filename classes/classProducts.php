@@ -79,7 +79,7 @@ class Product{
          return array();
       } 
 
-   }
+   }   
 
    public function getProductid(){
       return $this->productid;

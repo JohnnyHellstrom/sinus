@@ -6,7 +6,7 @@ session_start();
 $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW); 
 $firstname = filter_input(INPUT_POST, 'firstname', FILTER_UNSAFE_RAW); 
 $lastname = filter_input(INPUT_POST, 'lastname', FILTER_UNSAFE_RAW); 
-$email = filter_input(INPUT_POST, 'email', FILTER_UNSAFE_RAW); 
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL); 
 $phone = filter_input(INPUT_POST, 'phone', FILTER_UNSAFE_RAW); 
 $streetadress = filter_input(INPUT_POST, 'streetadress', FILTER_UNSAFE_RAW); 
 $zipcode = filter_input(INPUT_POST, 'zipcode', FILTER_UNSAFE_RAW); 
@@ -27,10 +27,7 @@ switch($action)
 {
   case 'oldcustomerinfo':
     // getting customer id
-    $customerId = Customer::retrieveCustomerId($_POST['email']);
-    echo '<pre>';
-    var_dump($customerId['customerid']);
-    echo '</pre>';
+    $customerId = Customer::retrieveCustomerId($_POST['email']);  
     // update order and order details
     break;
 
