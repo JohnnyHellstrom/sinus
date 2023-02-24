@@ -74,10 +74,37 @@ class Customer{
     $city = $this->getCity();
     $country = $this->getCountry();    
 
-    $sql->execute();    
+    $sql->execute();   
+     // selecting the scope_identity , last inputed into the vehiclearchive
+    $lastId = $sql->insert_id; 
 
     $sql->close();
-    $conn->close();  
+    $conn->close(); 
+
+    return $lastId;
+  }
+
+  public static function retrieveCustomerInfo($email)
+  {
+    $conn = DB::connect();
+
+    $sql = $conn->prepare('SELECT firstname,lastname,email,phone,streetadress,zipcode,city,country FROM customers WHERE email = ?');
+    $sql->bind_param('s', $email);
+   
+    $sql->execute();
+    $result = $sql->get_result();
+
+    if($result->num_rows > 0){
+       $row = $result->fetch_assoc();
+       $oldCustomer = new Customer($row['firstname'], $row['lastname'], $row['email'], $row['phone'], $row['streetadress'], $row['zipcode'], $row['city'], $row['country']);
+       $sql->close(); 
+       $conn->close();
+       return $oldCustomer;
+    } else {
+       $sql->close(); 
+       $conn->close();
+       return null;
+    }
   }
 }
 

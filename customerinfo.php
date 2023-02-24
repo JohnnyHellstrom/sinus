@@ -1,5 +1,5 @@
 <?php
-require_once('classes/classDataWash.php');
+require_once('classes/classDBClasses.php');
 
 
 $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW); 
@@ -26,3 +26,20 @@ echo '<pre>';
 var_dump($_POST);
 echo '</pre>';
 
+switch($action)
+{
+  case 'oldcustomerinfo':
+    // input order
+    break;
+
+  case 'newcustomerinfo':
+    $newCustomer = new Customer(ucfirst($firstname), ucfirst($lastname), strtolower($email), $phone, ucfirst($streetadress), $zipcode, ucfirst($city), ucfirst($country));
+    $newCustomer->insertInfoToDB();
+    break;
+  
+  case 'existingcustomer':   
+    $email = $_POST['email'];
+    $oldCustomer = Customer::retrieveCustomerInfo($email);
+    header('location: view/viewExistingCustomerform.php');   
+    break;
+}

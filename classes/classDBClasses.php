@@ -6,3 +6,4 @@ require('classProducts.php');
 require('classImage.php');
 require('classAdminLogin.php');
 require('classCustomer.php');
+require('classDataWash.php');

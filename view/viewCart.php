@@ -56,5 +56,5 @@
    <a href="view/viewAllProducts.php">Buy More Stuff</a>
 </button>
 <button>
-   <a href="view/viewCustomerform.php">Checkout 💸</a>
+   <a href="view/viewNewOrExistingCust.php">Checkout 💸</a>
 </button>

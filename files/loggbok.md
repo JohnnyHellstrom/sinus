@@ -20,3 +20,5 @@ tror vi alla var nöjda med dagen, och vad vi fick presterat tillsammans.
 
 dag 3, fredag:
 
+-- ta upp varför, vi plockar fram datan jämtemot email adress, förstå faran med varför vi gör så här istället för å ha login.
+

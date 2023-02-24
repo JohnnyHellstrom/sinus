@@ -26,4 +26,6 @@ if(isset($_POST['delete']) && ($_POST['delete'] == "♻️")){
 }
 echo '<br><br><br><br>';
 require('view/viewCart.php');
+
 ?>
+
