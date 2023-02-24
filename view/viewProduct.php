@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/viewproduct.css">
 <?php
 session_start();
 require('../classes/classDBClasses.php');
@@ -24,9 +25,9 @@ $_SESSION["product"] = (int)$product->getProductid();
       <input type="hidden" value="buy">  
       <div class="product-container">
          <div>
-            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>" alt="<?= $title ?>" style="width:100%; max-height: 100%">
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>" alt="<?= $title ?>" style="max-width:100%; max-height: 100%">
          </div>
-      </div>
+      
      <h3><?= $title ?></h3>
       <p><?= $description ?></p>
       <p><?= $price . " " ?>kr</p>
@@ -38,6 +39,7 @@ $_SESSION["product"] = (int)$product->getProductid();
          <?php } ?>
       </select>
       <button>Add to Cart 🛒</button>
+      </div>
    </form>
 
 
