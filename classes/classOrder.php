@@ -2,8 +2,17 @@
 
 
 class Order{
+  private $orderid;
+  private $customerid;
+  private $orderdate;
+  private $shipped;
 
-
+  public function __construct($orderid, $customerid, $orderdate, $shipped){
+    $this->orderid = $orderid;
+    $this->customerid = $customerid;
+    $this->orderdate = $orderdate;
+    $this->shipped = $shipped;
+  }
   public static function insertNewOrder($id){
 
     $conn = DB::connect();
@@ -34,6 +43,33 @@ class Order{
 
     $stmt->close();
     $conn->close();
+  }
+
+  public static function getAllOrders(){
+    $conn = DB::connect();
+    $result = $conn->query("SELECT * FROM orders");
+    
+    $allorders = array();
+    if($result->num_rows > 0){
+      while($row = $result->fetch_assoc()){
+        $order = new Order($row['orderid'],$row['customerid'],$row['orderdate'],$row['shipped']);
+        $allorders[] = $order;
+      }
+    }
+    $conn->close();
+    return $allorders;
+  }
+  public function getOrderid(){
+    return $this->orderid;
+  }
+  public function getCustomerid(){
+    return $this->customerid;
+  }
+  public function getOrderdate(){
+    return $this->orderdate;
+  }
+  public function getShipped(){
+    return $this->shipped;
   }
 
 }

@@ -23,8 +23,7 @@ class User
     return $this->userPassword;
   }
 
-  public function createAccount()
-  {
+  public function createAccount(){
     $mysqli = DB::connect();
     if($mysqli->connect_error)
     {
@@ -44,8 +43,7 @@ class User
     $mysqli->close();     
   }
    
-  public function loginWithAccount()
-  {
+  public function loginWithAccount(){
     $mysqli = DB::connect();      
       
     $statement = $mysqli->prepare('SELECT username, password FROM admin where username = ?');
