@@ -27,18 +27,12 @@ class Color{
       return $colors;
    }
    public static function InsertNewColor($color){
-      $conn = DB::connect();
-
-      $stmt = $conn->prepare("INSERT INTO colors (colorname) VALUES (?)");
-      $stmt->bind_param("s", $color);
-      try{
-         $stmt->execute();
-      } catch (Exception $e){
-         echo $e->getMessage();
+ 
+      $sql = "INSERT INTO colors (colorname) VALUES (?)";
+      $count = DB::Insert($sql, $color);
+      if($count){
+         echo 'New Color/Motiv added';
       }
-      
-      $stmt->close(); 
-      $conn->close();
    }
 
    public function getColorname(){

@@ -25,18 +25,13 @@ class Category{
       $conn->close();
       return $categorys;
    }
+   
    public static function InsertNewCategory($category){
-      $conn = DB::connect();
-
-      $stmt = $conn->prepare("INSERT INTO categories (categoryname) VALUES (?)");
-      $stmt->bind_param('s', $category);
-      try{
-         $stmt->execute();
-      } catch (exception $e) {
-         echo $e->getMessage();
+      $sql = "INSERT INTO categories (categoryname) VALUES (?)";
+      $count = DB::Insert($sql, $category);
+      if($count){
+         echo 'New Category added';
       }
-      $stmt->close();
-      $conn->close();
    }
 
    public function getCategoryname(){

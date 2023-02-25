@@ -4,17 +4,24 @@ include('adminview/adminheader.php');
 
 if(isset($_POST['id'])){
    include('adminview/adminviewUpdateProduct.php');
+} else if (isset($_POST['updateid'])){
+   include('adminview/adminviewUpdateConf.php');
+   include('adminview/adminviewAllProducts.php');
 } else {
    include('adminview/adminviewAllProducts.php');
 }
 
-$id = filter_input(INPUT_POST, 'id', FILTER_UNSAFE_RAW); 
+$id = filter_input(INPUT_POST, 'updateid', FILTER_UNSAFE_RAW); 
 $title = filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW); 
-$category = filter_input(INPUT_POST, 'category', FILTER_UNSAFE_RAW); 
-$color = filter_input(INPUT_POST, 'color', FILTER_UNSAFE_RAW); 
-$price = filter_input(INPUT_POST, 'price', FILTER_UNSAFE_RAW); 
+$categoryid = (int)filter_input(INPUT_POST, 'categoryid', FILTER_VALIDATE_INT); 
+$colorid = (int)filter_input(INPUT_POST, 'colorid', FILTER_VALIDATE_INT); 
+$price = (float)filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT); 
 $description = filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW); 
 
+if($id && $title && $categoryid && $colorid && $price && $description){
+   $alteredproduct = new Product($id, $title, $categoryid, $colorid, $price, $description);
+   Product::updateProduct($alteredproduct);
+}
 
 if(!empty($_FILES["image"]["name"])) { 
    // Get file info 
@@ -26,7 +33,6 @@ if(!empty($_FILES["image"]["name"])) {
    if(in_array($fileType, $allowTypes)){ 
       $image = $_FILES['image']['tmp_name']; 
       $imgContent = addslashes(file_get_contents($image)); 
-      $id = $_POST['id'];
       Image::addImage($imgContent, $id);
 
    } else { 

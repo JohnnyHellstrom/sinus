@@ -1,19 +1,37 @@
 <?php
 $product = Product::getProduct($_POST['id']);
+$colors = Color::getAllColors();
+$categories = Category::getAllCategories();
 ?>
 
 <fieldset>
   <legend>Update Product</legend>
   <form action="<?php $_SERVER['PHP_SELF']?>" enctype="multipart/form-data" method="post">
-  <input type="hidden" name="id" value="<?= $_POST['id'] ?>">
+
+    <input type="hidden" name="updateid" value="<?= $_POST['id'] ?>">
+
     <label for="title">Product Name:</label>
     <input type="text" name="title" value="<?= $product->getTitle() ?>" required>
 
-    <label for="category">Category:</label>
-    <input type="text" name="category" value="<?= $product->getCategory() ?>" required>
+    <label for="categoryid">Category:</label>
+    <select name="categoryid" id="categoryid">
+        <?php foreach($categories as $category){ ?>
+          <option value="<?= $category->getCategoryid(); ?>"
+          <?php if($category->getCategoryname() == $product->getCategory()){ ?> selected <?php } ?>> 
+            <?= $category->getCategoryname(); ?>
+        </option>
+        <?php } ?>
+    </select>
 
-    <label for="color">Color:</label>
-    <input type="text" name="color" value="<?= $product->getColor() ?>" required>
+    <label for="colorid">Color:</label>
+    <select name="colorid" id="colorid">
+      <?php foreach($colors as $color){ ?>
+        <option value="<?= $color->getColorid() ?>"
+        <?php if($color->getColorname() == $product->getColor()){ ?> selected <?php } ?>>
+            <?= $color->getColorname(); ?>
+        </option>
+        <?php } ?>
+    </select>
     
     <label for="price">Price:</label>
     <input type="text" name="price" value="<?= $product->getPrice() ?>" required>

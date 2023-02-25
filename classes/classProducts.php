@@ -97,6 +97,33 @@ class Product{
 
    }   
 
+   public static function updateProduct($product){
+      $conn = DB::connect();
+
+      $sql = "UPDATE products 
+               SET title = ?, categoryid = ?, colorid = ?, price = ?, description = ? 
+               WHERE productid = ?";
+
+      $id = $product->getProductid();
+      $title = $product->getTitle();
+      $categoryid = $product->getCategory();
+      $colorid = $product->getColor();
+      $price = $product->getPrice();
+      $description = $product->getDescription();
+      
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("siidsi",$title, $categoryid, $colorid, $price, $description, $id);
+
+      try{
+         $stmt->execute();
+      } catch (Exception $e){
+         echo $e->getMessage();
+      }
+      $stmt->close(); 
+      $conn->close(); 
+      echo 'Product has been updated';
+   }
+
    public function getProductid(){
       return $this->productid;
    }

@@ -13,9 +13,9 @@ if($category){
 }
 
 $title = DataWash::testInput(filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW)); 
-$categoryid = (int)DataWash::testInput(filter_input(INPUT_POST, 'categoryid', FILTER_UNSAFE_RAW)); 
-$colorid = (int)DataWash::testInput(filter_input(INPUT_POST, 'colorid', FILTER_UNSAFE_RAW)); 
-$price = (double)DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_UNSAFE_RAW)); 
+$categoryid = (int)DataWash::testInput(filter_input(INPUT_POST, 'categoryid', FILTER_VALIDATE_INT)); 
+$colorid = (int)DataWash::testInput(filter_input(INPUT_POST, 'colorid', FILTER_VALIDATE_INT)); 
+$price = (float)DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT)); 
 $description = DataWash::testInput(filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW)); 
 
 if($title && $categoryid && $colorid && $price && $description){

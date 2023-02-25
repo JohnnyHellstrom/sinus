@@ -1,6 +1,6 @@
 <?php
 $colors = Color::getAllColors();
-$categorys = Category::getAllCategories(); 
+$categories = Category::getAllCategories(); 
 ?>
 
 <fieldset>
@@ -12,7 +12,7 @@ $categorys = Category::getAllCategories();
 
     <label for="categoryid">Category:</label>
     <select name="categoryid" id="categoryid" required>
-      <?php foreach($categorys as $category){  ?>
+      <?php foreach($categories as $category){  ?>
       <option value="<?= $category->getCategoryid() ?>"><?= ucfirst($category->getCategoryname()) ?></option>
       <?php } ?>
     </select>
