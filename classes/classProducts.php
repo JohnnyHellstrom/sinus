@@ -121,7 +121,7 @@ class Product{
       }
       $stmt->close(); 
       $conn->close(); 
-      echo 'Product has been updated';
+      echo '<br>Product has been updated<br>';
    }
 
    public function getProductid(){

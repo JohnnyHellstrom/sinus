@@ -4,7 +4,7 @@ session_start();
 require('../classes/classDBClasses.php');
 include('adminview/adminheader.php');
 
-$id = filter_input(INPUT_POST, 'updateid', FILTER_UNSAFE_RAW); 
+$id = filter_input(INPUT_POST, 'updateid', FILTER_VALIDATE_INT); 
 $title = filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW); 
 $categoryid = (int)filter_input(INPUT_POST, 'categoryid', FILTER_VALIDATE_INT); 
 $colorid = (int)filter_input(INPUT_POST, 'colorid', FILTER_VALIDATE_INT); 
@@ -16,11 +16,6 @@ if($id && $title && $categoryid && $colorid && $price && $description){
    $alteredproduct = new Product($id, $title, $categoryid, $colorid, $price, $description);
    Product::updateProduct($alteredproduct);
 } 
-if(isset($_POST['edit'])){
-   include('adminview/adminviewUpdateProduct.php');
-} else {
-   include('adminview/adminviewAllProducts.php');
-}
 
 if(!empty($_FILES["image"]["name"])) { 
    // Get file info 
@@ -32,9 +27,14 @@ if(!empty($_FILES["image"]["name"])) {
    if(in_array($fileType, $allowTypes)){ 
       $image = $_FILES['image']['tmp_name']; 
       $imgContent = addslashes(file_get_contents($image)); 
-      Image::addImage($imgContent, $id);
+      Image::updateImage($imgContent, $id);
 
    } else { 
       echo 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
    } 
 } 
+if(isset($_POST['edit'])){
+   include('adminview/adminviewUpdateProduct.php');
+} else {
+   include('adminview/adminviewAllProducts.php');
+}
