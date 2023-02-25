@@ -1,6 +1,6 @@
-<?php
-$product = Product::getProduct($_POST['updateid']);
-?>
+
+<!-- MAYBE DELETE FILE - ALOT O DB CALLS, SESSION or BRAINPOWER TO MAKE IT USEFUL -->
+
 <fieldset>
    <legend>Updated product</legend>
 <table class="cart-table">
@@ -12,20 +12,20 @@ $product = Product::getProduct($_POST['updateid']);
       <th scope="col">Category</th>
       <th scope="col">Price</th>
       <th scope="col">Edit</th>
+      <th scope="col">Confirm</th>
    </tr>
 </thead>
 <tbody>     
    <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
-   <input type="hidden" name="id" value="<?= $product->getProductid() ?>">
+   <input type="hidden" name="id" value="<?= $alteredproduct->getProductid() ?>">
    <tr>
-      <td><div style="height:50px; width:50px">
-         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product->getImage()); ?>" alt="<?= $product->getTitle() ?>" style="width:100%; max-height: 100%">
-      </div></td>
-      <td><?= $product->getTitle() ?></td>
-      <td><?= $product->getColor() ?></td>
-      <td><?= $product->getCategory() ?></td>
-      <td><?= $product->getPrice() ?></td>
+      <td>BILD</td>
+      <td><?= $alteredproduct->getTitle() ?></td>
+      <td><?= $alteredproduct->getColor() ?></td>
+      <td><?= $alteredproduct->getCategory() ?></td>
+      <td><?= $alteredproduct->getPrice() ?></td>
       <td> <input type="submit" name="edit" value="✏️" style="background:none;"></input></td>
+      <td> <input type="submit" name="confirm" value="✅" style="background:none;"></input></td>
    </tr>  
    </form>
 </tbody>

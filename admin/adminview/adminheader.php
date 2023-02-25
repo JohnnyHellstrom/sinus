@@ -8,3 +8,6 @@
 <button>
    <a href="adminUpdateProduct.php">See All Products</a>
 </button>
+<button>
+   <a href=".">Go to adminindex</a>
+</button>
