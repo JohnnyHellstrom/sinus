@@ -1,5 +1,4 @@
 <?php
-
 $product = Product::getProduct($_POST['updateid']);
 ?>
 <fieldset>
