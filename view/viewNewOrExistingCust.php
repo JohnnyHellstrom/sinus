@@ -1,21 +1,16 @@
-<?php
-include('header.php');
-?>
-
-
 <p>are you a new customer?</p>
 
-<a href="viewNewCustomerform.php"><button>new customer</button></a>
+
+<form action="customerinfo.php" method="post">
+  <input type="submit" name="newcustomer" value="newcustomer">
+</form>
+
 <p>or a returning customer?, enter your email</p>
 <fieldset>
-  <form action="../customerinfo.php" method="post">
-    <input type="hidden" name="action" value="existingcustomer">
-    <label for="email">Email:</label>
-    <input type="email" name="email">
+  <form action="customerinfo.php" method="post">
+    <input type="hidden" name="existingcustomer" value="existingcustomer">
+    <label for="oldemail">Email:</label>
+    <input type="oldemail" name="oldemail">
     <button>Submit</button>
   </form>
 </fieldset>
-
-<?php
-include('footer.php');
-?>

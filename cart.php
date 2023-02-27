@@ -4,6 +4,10 @@
 session_start();
 require('classes/classDBClasses.php');
 
+if(!isset($_SESSION['cart'])){
+   header('location: index.php');
+}
+
 if(isset($_POST['edit']) && ($_POST['edit'] == "✏️")){
    include('view/viewEditCart.php');
 }

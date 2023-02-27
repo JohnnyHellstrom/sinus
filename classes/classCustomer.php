@@ -82,7 +82,7 @@ class Customer{
     $sql->close();
     $conn->close(); 
 
-    return $lastId;
+    return $lastId["customerid"];
   }
 
   public static function retrieveCustomerInfo($email)
@@ -122,7 +122,7 @@ class Customer{
     $sql->close(); 
     $conn->close();
 
-    return $row;
+    return $row['customerid'];
   }
 }
 

@@ -23,6 +23,62 @@ class Product{
       $this->description = $description;
    }
 
+   public static function getSearchedProducts($searchword, $categoryid, $colorid){
+      $conn = DB::connect();
+
+      $sql = "SELECT p.productid, p.title, k.categoryname, c.colorname, p.price, p.description, i.image 
+      FROM products p
+      JOIN colors c ON c.colorid = p.colorid
+      JOIN categories k ON k.categoryid = p.categoryid
+      JOIN images i ON i.productid = p.productid
+      WHERE ";
+
+      $datatypes = "";
+      $params = array();
+
+      if($searchword){
+         if($datatypes){
+            $sql .= " AND ";
+         }
+         $sql .= "p.title LIKE ?";
+         $datatypes .= "s";
+         $searchword = '%' .$searchword. '%';
+         $params[] = $searchword;
+      }
+      if($categoryid){
+         if($datatypes){
+            $sql .= " AND ";
+         }
+         $sql .= "p.categoryid = ?";
+         $datatypes .= "i";
+         $params[] = $categoryid;
+      }
+      if($colorid){
+         if($datatypes){
+            $sql .= " AND ";
+         }
+         $sql .= "p.colorid = ?";
+         $datatypes .= "i";
+         $params[] = $colorid;
+      }
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("$datatypes", ...$params);
+      $stmt->execute();
+      $result = $stmt->get_result();
+ 
+      if ($result->num_rows > 0) {
+         while($row = $result->fetch_assoc()) {
+            $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description'], $row['image']);
+            $allProducts[] = $product;     
+         }
+         $conn->close();
+         return $allProducts;
+      } else {
+         $conn->close();
+         return array();
+      } 
+   }
+
    public static function addProduct($product){
       $conn = DB::connect();
 

@@ -1,41 +1,7 @@
 <?php
 require_once('classes/classDBClasses.php');
-require('vendor/autoload.php');
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-
-// creating an instance of the phpmailer class passing in true as the first argument
-// this argument will configure phpmailer to throw an exception if there is a problem
-$mail = new PHPMailer(true);
-
-// we are telling the mail that we are using an smpt server by calling the smpt method
-$mail->isSMTP();
-$mail->SMTPAuth = true;
-
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 587;
-
-$mail->Username = 'sinusskateshop@gmail.com';
-$mail->Password = 'tllgronvvofsgrlv';
-
-$storeEmail = 'sinusskateshop@gmail.com';
-$storeConfirmation = 'Sinus Skate Shop';
-
-
-// $mail->setFrom($email, $name);
-// $mail->addAddress('pstromstedt@telia.com');
-
-
-// $mail->Subject = $lastname;
-// $mail->Body = $country;
-
-
-
 
 session_start();
-
 
 $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW); 
 $firstname = filter_input(INPUT_POST, 'firstname', FILTER_UNSAFE_RAW); 
@@ -57,37 +23,42 @@ $zipcode = DataWash::testInput($zipcode);
 $city = DataWash::testInput($city);
 $country = DataWash::testInput($country);
 
+
+$oldemail = DataWash::testInput(filter_input(INPUT_POST, 'oldemail', FILTER_SANITIZE_EMAIL));
+
+include('view/header.php');
+
+
+if(isset($_POST['newcustomer'])){
+  include('view/viewNewCustomerform.php');
+} else if(isset($_POST['existingcustomer'])){
+  $oldCustomer = Customer::retrieveCustomerInfo($oldemail);
+  include('view/viewExistingCustomerform.php');
+} else {
+  include('view/viewNewOrExistingCust.php');
+}
+
+
 switch($action)
 {
   case 'oldcustomerinfo':
     // getting customer id
-    $customerId = Customer::retrieveCustomerId($_POST['email']);  
-    // update order and order details
-    $mail->setFrom($storeEmail, $storeConfirmation);
-    $mail->addAddress($_POST['email']);
-
-
-    // $mail->isHTML(true);
-    $mail->Subject = $lastname;
-    $mail->Body = $country;
-    $mail->send();
-    echo 'thank you ordering, a confirmation email has been sent!';
+    $customerId = Customer::retrieveCustomerId($email);  
     break;
 
   case 'newcustomerinfo':
     $newCustomer = new Customer(ucfirst($firstname), ucfirst($lastname), strtolower($email), $phone, ucfirst($streetadress), $zipcode, ucfirst($city), ucfirst($country));
-    $lastId = $newCustomer->insertInfoToDB();   
+    $customerId = $newCustomer->insertInfoToDB();
     break;
-  
-  case 'existingcustomer':   
-    $_SESSION['oldEmail'] = $_POST['email'];    
-    header('location: view/viewExistingCustomerform.php');   
-    break;
+
+
 }
-
-// https://github.com/phpmailer/phpmailer
-// download composer to be able to install the mail server thingie in cmd prompt
-// using the composer thingie from that github
-
-// sinusskateshop@gmail.com
-// pw: b@llong2023
+if(isset($customerId)){
+  $orderid = Order::insertNewOrder($customerId);
+  foreach ($_SESSION['cart'] as $id => $qty) {
+    Order::insertIntoOrderDetails($id, $orderid, $qty);
+  }
+  unset($_SESSION);
+  session_destroy();
+}
+include('view/footer.php');

@@ -1,13 +1,31 @@
-<?php 
-session_start();
-require('../classes/classDBClasses.php');
 
-include('header.php');
-
-$products = Product::getAllProducts();
-
-?>
 <main>
+<section>
+   <fieldset>
+      <form  action="<?= $_SERVER['PHP_SELF'] ?>" method="get" >
+         <label class="display-inline" for="search">Search </label>
+         <input class="display-inline" type="text" name="search">
+
+         <label class="display-inline" for="categoryid">Category:</label>
+         <select class="display-inline" name="categoryid" id="categoryid">
+            <option selected value="">None</option>
+            <?php foreach($categories as $category){  ?>
+            <option value="<?= $category->getCategoryid() ?>"><?= ucfirst($category->getCategoryname()) ?></option>
+            <?php } ?>
+         </select>
+
+         <label class="display-inline" for="colorid">Color:</label>
+         <select class="display-inline" name="colorid" id="colorid">
+            <option selected value="">None</option>
+            <?php foreach($colors as $color){  ?>
+            <option value="<?= $color->getColorid() ?>"><?= ucfirst($color->getColorname()) ?></option>
+            <?php } ?>
+         </select>
+         <button class="display-inline">Search 🔍</button>
+      </form>  
+   </fieldset>
+</section>
+
 <section class="product-cards">
 
       <?php
@@ -18,7 +36,7 @@ $products = Product::getAllProducts();
       $price = $product->getPrice(); 
       $image = $product->getImage();
       ?>
-      <form action="viewProduct.php" method="post">
+      <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
          <input type="hidden" name="id" value="<?= $id ?>">    
          <div class="card">
             <div class="image-container"> 
@@ -35,5 +53,3 @@ $products = Product::getAllProducts();
 
 </main>
 <?php
-
-include('footer.php');

@@ -1,15 +1,9 @@
-<?php
-include('header.php');
-require('../classes/classDBClasses.php');
-session_start();
-$oldCustomer = Customer::retrieveCustomerInfo($_SESSION['oldEmail']);
-?>
 
 <h2>Fill in your information</h2>
 
 <fieldset>
   <legend></legend>
-  <form action="../customerinfo.php" method="post">
+  <form action="customerinfo.php" method="post">
     <input type="hidden" name="action" value="oldcustomerinfo">
     <label for="firstname">First name:</label>
     <input type="text" name="firstname" value="<?= $oldCustomer->getFirstName() ?>" required>
@@ -30,7 +24,3 @@ $oldCustomer = Customer::retrieveCustomerInfo($_SESSION['oldEmail']);
     <button>Order</button>       
   </form>
 </fieldset>
-
-<?php
-include('footer.php');
-?>

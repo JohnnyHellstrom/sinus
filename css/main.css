@@ -10,9 +10,10 @@ html{
 body{
    display: flex;
    flex-direction: column;
+   max-width: 90%;
 }
 
-section .product-cards{
+.product-cards{
    width: 100%; 
    display: flex;
    justify-content: center;
@@ -21,7 +22,6 @@ section .product-cards{
    flex-grow: 1;
 }
 .product-cards .card{
-   float:left;
    width: 200px;
    height: 350px;
    display: flex;
@@ -45,6 +45,12 @@ img:hover{
 input[type=text]{
    width: 50%;
 }
+.display-inline{
+  display: inline-block;
+}
+
+
+
 
 /* CART TABLE */
 .cart-table th,

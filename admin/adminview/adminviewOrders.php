@@ -18,8 +18,8 @@ $orders = Order::getAllOrders();
          ?>
          <input type="hidden" name="orderid" value="<?= $order->getOrderid() ?>">
          <tr>
-            <td><?= $order->getOrderid() ?><td>
-            <td><?= $orderdate->format('Y-m-d h:i') ?></td>
+            <td><?= $order->getOrderid() ?></td>
+            <td><?= $orderdate->format('Y-m-d H:i') ?></td>
             <td><?= $order->getShipped() ?></td>
             <td><input type="submit" name="orderdetails" value="🔍" style="background:none;"></input></td>
          </tr>

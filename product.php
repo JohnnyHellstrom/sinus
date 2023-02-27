@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('view/header.php');
+
 
 // unset($_SESSION);
 // session_destroy();
@@ -15,10 +15,13 @@ if(isset($_SESSION["cart"])){
    $_SESSION["cart"] = array($_SESSION["product"] => (int)$_POST['quantity']);
 }
 
-
+include('view/header.php');
 // echo '<pre>';
 // var_dump($_SESSION["cart"]);
 // echo '</pre>';
 ?>
 <a href="Cart.php">Cart</a>
-<a href="view/viewAllProducts.php">All products</a>
+<a href=".">All products</a>
+
+<?php 
+include('view/footer.php');

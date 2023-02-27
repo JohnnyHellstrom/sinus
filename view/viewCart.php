@@ -53,8 +53,8 @@
    </tfoot>
 </table>
 <button>
-   <a href="view/viewAllProducts.php">Buy More Stuff</a>
+   <a href=".">Buy More Stuff</a>
 </button>
 <button>
-   <a href="view/viewNewOrExistingCust.php">Checkout 💸</a>
+   <a href="customerinfo.php">Checkout 💸</a>
 </button>

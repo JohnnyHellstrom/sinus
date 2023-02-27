@@ -10,14 +10,14 @@ class Order{
   public function __construct($orderid, $customerid, $orderdate, $shipped){
     $this->orderid = $orderid;
     $this->customerid = $customerid;
-    $this->orderdate = $orderdate;
+    $this->orderdate = new DateTime($orderdate);
     $this->shipped = $shipped;
   }
   public static function insertNewOrder($id){
 
     $conn = DB::connect();
 
-    $sql = "INSERT INTO orders(customerid) VALUES = ?";
+    $sql = "INSERT INTO orders (customerid) VALUES (?) ";
    
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
@@ -32,7 +32,7 @@ class Order{
     return $lastId;
   }
 
-  public static function insertIntoOrderDetails($id){
+  public static function insertIntoOrderDetails($productid, $orderid, $quantity){
     $conn = DB::connect();
 
     $sql = "INSERT INTO orderdetails(productid, orderid,quantity) VALUES (?,?,?)";
