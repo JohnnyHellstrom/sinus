@@ -33,7 +33,7 @@ $image = $product->getImage();
    </div>
 </form>
 
-<div class="side-pictures" class="product-container">
+<div class="side-pictures">
    <?php foreach ($othercolors as $other) { 
       $otherid = $other->getProductid();
       $otherimage = $other->getImage();?>
