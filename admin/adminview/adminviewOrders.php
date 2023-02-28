@@ -1,7 +1,4 @@
-<?php
-$orders = Order::getAllOrders();
 
-?>
 <table>
    <thead>
       <tr>
