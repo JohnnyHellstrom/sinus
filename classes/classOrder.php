@@ -59,6 +59,26 @@ class Order{
     $conn->close();
     return $allorders;
   }
+
+  public static function getOrdersDetails($orderid){
+    $conn = DB::connect();
+    $stmt = $conn->prepare("SELECT p.productid, p.title, c.colorname, od.quantity
+                              From products as p
+                              join colors as c on c.colorid = p.colorid
+                              join orderdetails as od on od.orderdetailsid = p.productid
+                              join orders as o on o.orderid = od.orderid
+                              where o.orderid = ?"); 
+                              
+    $stmt->bind_param("i",$orderid);  
+    $stmt->execute();
+    $result = $stmt->get_result();                     
+
+    $row = $result->fetch_assoc();      
+    
+    $conn->close();
+    return $row;
+  }
+
   public function getOrderid(){
     return $this->orderid;
   }

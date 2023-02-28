@@ -12,10 +12,12 @@ $orders = Order::getAllOrders();
       </tr>
    </thead>
    <tbody>
+   <?php foreach($orders as $order){ ?>
+
       <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-         <?php foreach($orders as $order){ 
-         $orderdate = $order->getOrderdate()
-         ?>
+      
+      <?php $orderdate = $order->getOrderdate()
+         ?>        
          <input type="hidden" name="orderid" value="<?= $order->getOrderid() ?>">
          <tr>
             <td><?= $order->getOrderid() ?></td>
@@ -23,8 +25,8 @@ $orders = Order::getAllOrders();
             <td><?= $order->getShipped() ?></td>
             <td><input type="submit" name="orderdetails" value="🔍" style="background:none;"></input></td>
          </tr>
-      <?php } ?>
+     
       </form>
-
+      <?php } ?>
    </tbody>
 </table>
