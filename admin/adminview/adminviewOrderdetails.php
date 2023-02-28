@@ -10,7 +10,6 @@
    </tr>
 </thead>
 <tbody>      
-   <tr>  
    <?php foreach($orderdetail as $order){ ?>   
    <tr>
       <td><?= $order->getTitle() ?></td>
@@ -19,10 +18,7 @@
       <td><?= $order->getQuantity() ?></td>
    </tr>
 
-</form>
-<?php } ?>    
+   <?php } ?>    
           
-   </tr>  
-   </form>
 </tbody>
 </table>

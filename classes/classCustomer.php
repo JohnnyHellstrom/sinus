@@ -13,8 +13,9 @@ class Customer{
   private $zipcode;
   private $city;
   private $country;
+  private $customerid;
 
-  function __construct($firstName,$lastName,$email,$phone,$adress,$zipcode,$city,$country)
+  function __construct($firstName,$lastName,$email,$phone,$adress,$zipcode,$city,$country,$customerid = null)
   {    
     $this->firstName = $firstName;
     $this->lastName = $lastName;
@@ -24,8 +25,13 @@ class Customer{
     $this->zipcode = $zipcode;
     $this->city = $city;
     $this->country = $country;
+    $this->customerid = $customerid;
   }
 
+  public function getCustomerId()
+  {
+    return $this->customerid;
+  }
   public function getFirstName()
   {
     return $this->firstName;
@@ -84,6 +90,26 @@ class Customer{
 
     return $lastId["customerid"];
   }
+
+  public static function retrieveAllCustomers()
+  {
+    $conn = DB::connect();
+
+    $result = $conn->query('SELECT * FROM customers');
+    $allcustomer = array();
+    if($result->num_rows > 0){
+
+      while($row = $result->fetch_assoc()){
+        $customer = new Customer($row['firstname'], $row['lastname'], $row['email'], $row['phone'], $row['streetadress'], $row['zipcode'], $row['city'], $row['country'],$row['customerid']);
+        $allcustomer[] = $customer;
+      }
+    } else {
+      echo 'No customers in DB';
+    }
+    $conn->close();
+    return $allcustomer;
+  }
+
 
   public static function retrieveCustomerInfo($email)
   {

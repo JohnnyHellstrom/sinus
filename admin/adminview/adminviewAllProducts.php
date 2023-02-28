@@ -1,7 +1,3 @@
-<?php
-$products = Product::getAllProducts();
-?>
-
 <table class="cart-table">
 <thead>
    <tr>

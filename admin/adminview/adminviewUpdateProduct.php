@@ -1,8 +1,3 @@
-<?php
-$product = Product::getProduct($_POST['id']);
-$colors = Color::getAllColors();
-$categories = Category::getAllCategories();
-?>
 
 <fieldset>
   <legend>Update Product</legend>
