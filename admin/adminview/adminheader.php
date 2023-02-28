@@ -19,3 +19,6 @@
 <button>
    <a href="./adminCustomers.php">View Customers</a>
 </button>
+<button>
+   <a href="./adminRemove.php">Remove a user</a>
+</button>
