@@ -45,13 +45,14 @@ $extraimages = Image::getExtraImages($id);
    </div>
 
 
-   <div class="picture-carousel">
+   <div class="extra-images">
    <?php foreach ($extraimages as $extraimage) { 
      $image_data = $extraimage->getImage();
    ?>
-      <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image_data); ?>" alt="extraimage">
+      <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image_data); ?>" alt="extraimage" class="extra-image">
    <?php } ?>
 </div>
+
 
 
  
