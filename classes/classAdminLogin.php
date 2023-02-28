@@ -1,5 +1,4 @@
 <?php
-//require_once('../classes/classDB.php');
 
 class User
 {
@@ -71,5 +70,54 @@ class User
       $_SESSION['error'] = 'something went wrong!';
       header('location: adminview/loginform.php');
     }
+  }
+}
+
+class RemoveUser{
+  private $userid;
+  private $username;
+
+  public function __construct($userid, $username)
+  {
+    $this->userid = $userid;
+    $this->username = $username;
+  }
+
+
+  public function getUserid()
+  {
+    return $this->userid;
+  }
+
+  public function getUsername()
+  {
+    return $this->username;
+  }
+
+  public static function getUserDetails(){
+    $conn = DB::connect();
+    $result = $conn->query("SELECT adminid, username FROM admin where not(adminid = 1) ORDER BY adminid");                              
+    
+    $allUsers = array();
+    if($result->num_rows > 0){
+      while($row = $result->fetch_assoc()){
+        $userDetails = new RemoveUser($row['adminid'],$row['username']);
+        $allUsers[] = $userDetails;
+      }
+    }
+    $conn->close();
+    return $allUsers;
+  }
+
+  public static function removeUser($userid)
+  {
+    $conn = DB::connect();
+
+    $sql = "DELETE FROM admin WHERE adminid = $userid";
+    $stmt = $conn->prepare($sql);    
+    $stmt->execute();
+
+    $stmt->close(); 
+    $conn->close();
   }
 }

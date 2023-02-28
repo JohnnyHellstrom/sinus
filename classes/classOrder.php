@@ -23,7 +23,6 @@ class Order{
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
-      // selecting the scope_identity , last inputed into the vehiclearchive
     $lastId = $stmt->insert_id; 
 
     $stmt->close(); 

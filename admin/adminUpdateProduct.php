@@ -41,7 +41,11 @@ if(!empty($_FILES["image"]["name"])) {
    } 
 } 
 if(isset($_POST['edit'])){
+   $product = Product::getProduct($_POST['id']);
+   $colors = Color::getAllColors();
+   $categories = Category::getAllCategories();
    include('adminview/adminviewUpdateProduct.php');
 } else {
+   $products = Product::getAllProducts();
    include('adminview/adminviewAllProducts.php');
 }
