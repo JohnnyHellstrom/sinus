@@ -1,3 +1,4 @@
+<h2>Customer Information:</h2>
 <table>
    <tr>
       <th scope="row">Name:</th>

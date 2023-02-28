@@ -1,3 +1,4 @@
+<h2>All Customers:</h2>
 <table class="cart-table">
 <thead>
    <tr>

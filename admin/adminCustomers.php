@@ -7,7 +7,7 @@ include('./adminview/adminheader.php');
 
 
 if(isset($_POST['custdetails'])){
-   $customer = Customer::retrieveCustomerInfo($customerEmail);
+   $customer = Customer::retrieveCustomerInfo($customerEmail);   
    include('./adminview/adminviewCustomerinfo.php');
 } else {
    $allcustomers = Customer::retrieveAllCustomers();

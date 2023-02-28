@@ -1,4 +1,4 @@
-
+<h2>Remove a User:</h2>
 <table class="cart-table">
 <thead>
    <tr>
