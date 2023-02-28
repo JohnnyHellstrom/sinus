@@ -14,18 +14,7 @@ $city = DataWash::testInput(filter_input(INPUT_POST, 'city', FILTER_UNSAFE_RAW))
 $country = DataWash::testInput(filter_input(INPUT_POST, 'country', FILTER_UNSAFE_RAW)); 
 $oldemail = DataWash::testInput(filter_input(INPUT_POST, 'oldemail', FILTER_SANITIZE_EMAIL));
 
-include('view/header.php');
-
-
-if(isset($_POST['newcustomer'])){
-  include('view/viewNewCustomerform.php');
-} else if(isset($_POST['existingcustomer'])){
-  $oldCustomer = Customer::retrieveCustomerInfo($oldemail);
-  include('view/viewExistingCustomerform.php');
-} else {
-  include('view/viewNewOrExistingCust.php');
-}
-
+include('./view/header.php');
 
 switch($action)
 {
@@ -45,7 +34,19 @@ if(isset($customerId)){
   foreach ($_SESSION['cart'] as $id => $qty) {
     Order::insertIntoOrderDetails($id, $orderid, $qty);
   }
+  $orderdetail = OrderDetails::getOrdersDetails($orderid);
+  include('./view/viewCheckout.php');
   unset($_SESSION);
   session_destroy();
+} else if(isset($_POST['newcustomer'])){
+  include('./view/viewNewCustomerform.php');
+} else if(isset($_POST['existingcustomer'])){
+  $oldCustomer = Customer::retrieveCustomerInfo($oldemail);
+  include('./view/viewExistingCustomerform.php');
+} else {
+  include('./view/viewNewOrExistingCust.php');
 }
-include('view/footer.php');
+
+
+
+include('./view/footer.php');
