@@ -8,7 +8,7 @@ $color = $product->getColor();
 $price = $product->getPrice(); 
 $description = $product->getDescription();
 $image = $product->getImage();
-
+$extraimages = Image::getExtraImages($id);
 
 ?>
 
@@ -39,12 +39,19 @@ $image = $product->getImage();
       $otherimage = $other->getImage();?>
       <form action="." method="post">
       <input type="hidden" name="id" value="<?= $otherid ?>"> 
-     
-               <input type="image" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($otherimage); ?>" alt="submit" style="width:100%; max-height: 100%">
-
+      <input type="image" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($otherimage); ?>" alt="submit" style="width:100%; max-height: 100%">
       </form>
    <?php } ?>
    </div>
+
+
+   <div class="picture-carousel">
+   <?php foreach ($extraimages as $extraimage) { 
+     $image_data = $extraimage->getImage();
+   ?>
+      <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image_data); ?>" alt="extraimage">
+   <?php } ?>
+</div>
 
 
  

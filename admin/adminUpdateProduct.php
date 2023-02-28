@@ -31,7 +31,7 @@ if(!empty($_FILES["image"]["name"])) {
       $imgContent = addslashes(file_get_contents($image)); 
       if($_POST['action'] == 'updateimage'){
          Image::updateImage($imgContent, $id);
-      } elseif ($POST['action'] == 'addimage'){
+      } elseif ($_POST['action'] == 'addimage'){
          Image::addExtraImage($imgContent, $id);
       }
 
