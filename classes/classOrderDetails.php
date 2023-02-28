@@ -32,7 +32,7 @@ class OrderDetails{
     $result = $conn->query("SELECT p.productid, p.title, c.colorname, od.quantity
                               FROM products AS p
                               JOIN colors AS c ON c.colorid = p.colorid
-                              JOIN orderdetails AS od ON od.orderdetailsid = p.productid
+                              JOIN orderdetails AS od ON od.productid = p.productid
                               JOIN orders AS o ON o.orderid = od.orderid
                               WHERE o.orderid = $orderid");                              
     

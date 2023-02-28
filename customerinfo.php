@@ -33,16 +33,19 @@ if(isset($customerId)){
   $orderid = Order::insertNewOrder($customerId);
   foreach ($_SESSION['cart'] as $id => $qty) {
     Order::insertIntoOrderDetails($id, $orderid, $qty);
-  }
+  } 
   $orderdetail = OrderDetails::getOrdersDetails($orderid);
   include('./view/viewCheckout.php');
   unset($_SESSION);
   session_destroy();
+
 } else if(isset($_POST['newcustomer'])){
   include('./view/viewNewCustomerform.php');
+
 } else if(isset($_POST['existingcustomer'])){
   $oldCustomer = Customer::retrieveCustomerInfo($oldemail);
   include('./view/viewExistingCustomerform.php');
+
 } else {
   include('./view/viewNewOrExistingCust.php');
 }

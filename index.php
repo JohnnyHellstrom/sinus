@@ -15,7 +15,7 @@ if($productid){
    $othercolors = Image::getOtherColorsForProduct($product->getTitle());
    $extraimages = Image::getExtraImages($productid);
    $_SESSION["product"] = $product->getProductid();
-   include('view/viewProduct.php');
+   include('./view/viewProduct.php');
 } else { 
 
    $colors = Color::getAllColors();
@@ -26,11 +26,11 @@ if($productid){
    } else {
       $products = Product::getAllProducts();
    }
-   include('view/viewAllProducts.php');
+   include('./view/viewAllProducts.php');
 }
 
 
 
 
-include('view/footer.php');
+include('./view/footer.php');
 ?>
