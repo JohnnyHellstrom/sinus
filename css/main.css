@@ -31,6 +31,11 @@ body{
 .product-cards .image-container{
    height: 70%;
 }
+
+.image-container input{
+   background: none;
+}
+
 img:hover{
    cursor: pointer;
 }
@@ -39,6 +44,7 @@ img:hover{
 }
 .product-cards p{
    color: #333333;
+   margin: 0;
 }
 input[type=text]{
    width: 50%;
