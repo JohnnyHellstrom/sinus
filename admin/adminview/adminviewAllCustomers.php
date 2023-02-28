@@ -9,7 +9,7 @@
 </thead>
 <tbody>      
    <?php foreach($allcustomers as $customer){ ?>   
-      <form action="">
+      <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
          <input type="hidden" name="mail" value="<?= $customer->getEmail() ?>">
          <tr>
             <td><?= $customer->getCustomerId() ?></td>

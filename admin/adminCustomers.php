@@ -5,9 +5,10 @@ $customerEmail = filter_input(INPUT_POST,'mail',FILTER_VALIDATE_EMAIL);
 include('./adminview/adminheader.php');
 
 
-if($customerEmail){
+if(isset($_POST['custdetails'])){
    $customer = Customer::retrieveCustomerInfo($customerEmail);
    include('./adminview/adminviewCustomerinfo.php');
+} else {
+   $allcustomers = Customer::retrieveAllCustomers();
+   include('./adminview/adminviewAllCustomers.php');
 }
-$allcustomers = Customer::retrieveAllCustomers();
-include('./adminview/adminviewAllCustomers.php');
