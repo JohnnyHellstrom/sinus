@@ -1,7 +1,7 @@
 <?php
+  include('adminSecurity.php');
   include('adminview/adminheader.php');
-  include('adminview/adminSignupForm.php');
-  
+  include('adminview/adminSignupForm.php');  
   require('../classes/classDBClasses.php');
 
   $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW); 

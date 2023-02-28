@@ -1,7 +1,8 @@
 <?php
-session_start();
 //PROTECT PACE
+include('adminSecurity.php');
 include('adminview/adminheader.php');
+
 
 ?>
 

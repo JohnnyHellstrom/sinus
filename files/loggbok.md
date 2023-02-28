@@ -36,4 +36,10 @@ bra jobbat, fick iordning på sök å filter funktionen. dagen var lite trög me
 dag 5, tisdag:
 
 
+lägg till en log out knapp.
 
+lägg till en go back knapp när man är inne på produkter
+
+
+ctrl + f i my.ini i xampp config databas
+man söker max_allowed_packet å ändra 1an till en 10a

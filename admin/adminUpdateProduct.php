@@ -1,15 +1,16 @@
 <?php
-session_start();
+
 //PROTECT PACE
+include('adminSecurity.php');
 require('../classes/classDBClasses.php');
 include('adminview/adminheader.php');
 
-$id = filter_input(INPUT_POST, 'updateid', FILTER_VALIDATE_INT); 
-$title = filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW); 
-$categoryid = (int)filter_input(INPUT_POST, 'categoryid', FILTER_VALIDATE_INT); 
-$colorid = (int)filter_input(INPUT_POST, 'colorid', FILTER_VALIDATE_INT); 
-$price = (float)filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT); 
-$description = filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW); 
+$id = DataWash::testInput(filter_input(INPUT_POST, 'updateid', FILTER_VALIDATE_INT)); 
+$title = DataWash::testInput(filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW)); 
+$categoryid = (int)DataWash::testInput(filter_input(INPUT_POST, 'categoryid', FILTER_VALIDATE_INT)); 
+$colorid = (int)DataWash::testInput(filter_input(INPUT_POST, 'colorid', FILTER_VALIDATE_INT)); 
+$price = (float)DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT)); 
+$description = DataWash::testInput(filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW)); 
 
 
 

@@ -1,4 +1,5 @@
 <?php
+include('adminSecurity.php');
 require('../classes/classDBClasses.php');
 include('adminview/adminheader.php');
 

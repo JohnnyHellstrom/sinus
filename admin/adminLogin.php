@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['user']))
+{
+  header('Location: adminview/adminloginform.php');
+}
 
 require('../classes/classDBClasses.php');
 
@@ -11,8 +15,10 @@ require('../classes/classDBClasses.php');
        
   $canWeLogin = new User($user, $password); 
   $canWeLogin->loginWithAccount();
-  
+  $_SESSION['user'] = $_POST['user'];
 
-// change that login afterwards
+ 
+
+
   header('location: index.php');
 ?>
