@@ -29,3 +29,11 @@ hittat lite med requires som vi fick löst, färdigställt lite formulär, lagt 
 -- Bra sen om vi orkar skydda sidorna. Alla admin ifall man inte är inloggad. Sen redirects på alla views osv 
 
 
+dag 4, måndag: 
+
+bra jobbat, fick iordning på sök å filter funktionen. dagen var lite trög men det vi satt å jobbade fick vi löst. peter försökte få igång mailfunktionen men det var ngt konflikt med porten som mailen skulle skicka via.
+
+dag 5, tisdag:
+
+
+

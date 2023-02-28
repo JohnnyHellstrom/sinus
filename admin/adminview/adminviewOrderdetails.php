@@ -1,21 +1,4 @@
-<?php
-$orderdetail = Order::getOrdersDetails($orderid);
-
-echo '<pre>';
-print_r($_POST['orderid']);
-echo '</pre>';
-
-echo '<pre>';
-print_r( $orderdetail);
-echo '</pre>';
-
-echo '<pre>';
-
-var_dump($orderid);
-echo '</pre>';
-
-
-?>
+<h2>Viewing Order number: <?= $orderid?></h2>
 
 <table class="cart-table">
 <thead>
@@ -27,7 +10,17 @@ echo '</pre>';
    </tr>
 </thead>
 <tbody>      
-   <tr>      
+   <tr>  
+   <?php foreach($orderdetail as $order){ ?>   
+   <tr>
+      <td><?= $order->getTitle() ?></td>
+      <td><?= $order->getProductid() ?></td>
+      <td><?= $order->getColor() ?></td>
+      <td><?= $order->getQuantity() ?></td>
+   </tr>
+
+</form>
+<?php } ?>    
           
    </tr>  
    </form>

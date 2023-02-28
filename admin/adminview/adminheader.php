@@ -13,3 +13,6 @@
 <button>
    <a href="adminOrders.php">Overview Orders</a>
 </button>
+<button>
+   <a href="adminSignup.php">Add another user</a>
+</button>

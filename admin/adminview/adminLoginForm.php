@@ -33,7 +33,6 @@
          <button>Submit</button>
     </form>
       </fieldset>
-   </main>
-   <a href="./adminSignupform.php">do you need an account?</a>
+   </main>   
 </body>
 </html>

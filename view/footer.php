@@ -7,7 +7,7 @@
                     <li><a href=".">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="admin/adminview/adminLoginForm.php">login / signup</a></li>
+                    <li><a href="admin/adminview/adminLoginForm.php">Login</a></li>
                 </ul>   
           
             </article>
