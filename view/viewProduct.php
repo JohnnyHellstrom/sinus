@@ -8,7 +8,7 @@ $color = $product->getColor();
 $price = $product->getPrice(); 
 $description = $product->getDescription();
 $image = $product->getImage();
-$extraimages = Image::getExtraImages($id);
+//$extraimages = Image::getExtraImages($id);
 
 ?>
 
@@ -19,10 +19,10 @@ $extraimages = Image::getExtraImages($id);
          <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>" alt="<?= $title ?>" style="max-width:100%; max-height: 100%">
       </div>
    
-      <h3><?= $title ?></h3>
+      <h3><?= ucfirst($title) ?></h3>
       <p><?= $description ?></p>
       <p><?= $price . " " ?>kr</p>
-      <p><?= $color ?></p>  
+      <p><?= ucfirst($color) ?></p>  
       <label for="quantity">Qty:</label>
       <select name="quantity" id="quantity">
          <?php for ($i=1;$i<=10;$i++){?>

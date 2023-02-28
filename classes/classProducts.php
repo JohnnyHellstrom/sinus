@@ -14,9 +14,9 @@ class Product{
 
    public function __construct($id, $title, $category, $color, $price, $description, $image = null, $qty = null){
       $this->productid = $id;
-      $this->title = $title;
-      $this->category = $category;
-      $this->color = $color;
+      $this->title = strtolower($title);
+      $this->category = strtolower($category);
+      $this->color = strtolower($color);
       $this->price = $price;
       $this->image = $image;
       $this->qty = $qty;

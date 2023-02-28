@@ -18,9 +18,9 @@
       <td><div style="height:50px; width:50px">
          <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product->getImage()); ?>" alt="<?= $product->getTitle() ?>" style="width:100%; max-height: 100%">
       </div></td>
-      <td><?= $product->getTitle() ?></td>
-      <td><?= $product->getColor() ?></td>
-      <td><?= $product->getCategory() ?></td>
+      <td><?= ucfirst($product->getTitle()) ?></td>
+      <td><?= ucfirst($product->getColor()) ?></td>
+      <td><?= ucfirst($product->getCategory()) ?></td>
       <td><?= $product->getPrice() ?></td>
       <td> <input type="submit" name="edit" value="✏️" style="background:none;"></input></td>
    </tr>  

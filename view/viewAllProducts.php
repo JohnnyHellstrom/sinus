@@ -31,8 +31,8 @@
       <?php
       foreach ($products as $product) { 
       $id = $product->getProductid();
-      $title = $product->getTitle();
-      $color = $product->getColor();
+      $title = ucfirst($product->getTitle());
+      $color = ucfirst($product->getColor());
       $price = $product->getPrice(); 
       $image = $product->getImage();
       ?>

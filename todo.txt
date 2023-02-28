@@ -1,6 +1,6 @@
 - fixa så man inte kan lägga order med tom varukorg
 - emailfältet i admin customertabell
-- stora/små bokstäver i databas/på display
+- stora/små bokstäver i databas/på display  DONE
 - dokumentation för databas-script
 - skydda adminsidor
 - checkout page
