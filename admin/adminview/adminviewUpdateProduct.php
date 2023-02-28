@@ -44,9 +44,19 @@ $categories = Category::getAllCategories();
     </div>
 
     <label>Add Image File:</label>
-    <input type="hidden" name="action" value="addimage">
+    <input type="hidden" name="action" value="updateimage">
     <input type="file" name="image">
     <button>Update</button>       
   </form>
 
+</fieldset>
+
+<fieldset>
+  <legend>Add extra image</legend>
+  <form action="<?php $_SERVER['PHP_SELF']?>" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="action" value="addimage">
+    <input type="hidden" name="updateid" value="<?= $_POST['id'] ?>">
+    <input type="file" name="image">
+    <button>Add image</button>     
+  </form>
 </fieldset>

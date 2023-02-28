@@ -13,6 +13,7 @@ $productid = filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);
 if($productid){
    $product = Product::getProduct($productid);
    $othercolors = Image::getOtherColorsForProduct($product->getTitle());
+   $extraimages = Image::getExtraImages($productid);
    $_SESSION["product"] = $product->getProductid();
    include('view/viewProduct.php');
 } else { 

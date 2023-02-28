@@ -29,7 +29,12 @@ if(!empty($_FILES["image"]["name"])) {
    if(in_array($fileType, $allowTypes)){ 
       $image = $_FILES['image']['tmp_name']; 
       $imgContent = addslashes(file_get_contents($image)); 
-      Image::updateImage($imgContent, $id);
+      if($_POST['action'] == 'updateimage'){
+         Image::updateImage($imgContent, $id);
+      } elseif ($POST['action'] == 'addimage'){
+         Image::addExtraImage($imgContent, $id);
+      }
+
 
    } else { 
       echo 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
