@@ -33,17 +33,18 @@ $image = $product->getImage();
    </div>
 </form>
 
-
+<div class="side-pictures" class="product-container">
    <?php foreach ($othercolors as $other) { 
       $otherid = $other->getProductid();
       $otherimage = $other->getImage();?>
       <form action="." method="post">
       <input type="hidden" name="id" value="<?= $otherid ?>"> 
-      <div style="height:50px; width:50px; margin:0 auto;">
+     
                <input type="image" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($otherimage); ?>" alt="submit" style="width:100%; max-height: 100%">
-            </div>
+
       </form>
    <?php } ?>
+   </div>
 
 
  
