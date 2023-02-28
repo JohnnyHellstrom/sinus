@@ -8,3 +8,4 @@ require('classAdminLogin.php');
 require('classCustomer.php');
 require('classDataWash.php');
 require('classOrder.php');
+require('classOrderDetails.php');

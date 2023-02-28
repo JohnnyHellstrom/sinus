@@ -5,7 +5,7 @@ $products = Product::getAllProducts();
 <table class="cart-table">
 <thead>
    <tr>
-   <th scope="col">Image</th>
+      <th scope="col">Image</th>
       <th scope="col">Product</th>
       <th scope="col">Color</th>
       <th scope="col">Category</th>
