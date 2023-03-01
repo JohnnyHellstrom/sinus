@@ -31,5 +31,10 @@ if(isset($_POST['delete']) && ($_POST['delete'] == "♻️")){
 echo '<br><br><br><br>';
 require('./view/viewCart.php');
 
+if(isset($_SESSION['message'])){
+   echo '<h2>' . $_SESSION['message'] . '</h2>';
+   unset($_SESSION['message']);
+}
+
 ?>
 

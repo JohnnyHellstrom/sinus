@@ -18,9 +18,12 @@
    session_start();
    if(isset($_SESSION['error']))
    {
-      echo 'something went wrong, try again!';
+      echo 'something went wrong, try again!';      
    }
-   session_destroy();
+   if(isset($_SESSION['cart'])){
+      $_SESSION['message'] = 'you cannot login with something in your cart...';
+      header('location: ../../cart.php');
+   }
    ?>
 
    <main>      
