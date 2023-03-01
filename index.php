@@ -27,6 +27,9 @@ if($productid){
       $products = Product::getAllProducts();
    }
    include('./view/viewAllProducts.php');
+   if(empty($products)){
+      echo "<h2>No matches found.</h2><br><button><a class=\"index-button\" href=\".\">View all products</a></button>";
+   } 
 }
 
 

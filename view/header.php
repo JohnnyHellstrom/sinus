@@ -1,3 +1,9 @@
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,7 @@
    <link rel="stylesheet" href="./css/header.css">
    <link rel="stylesheet" href="./css/viewproduct.css">
    <link rel="stylesheet" href="./css/main.css">
+   <link rel="stylesheet" href="./css/footer.css">
    <title>Sinus Webshop</title>
    <link rel="icon" href="./images/sinus-logo-symbol - small.png">
 </head>
@@ -37,3 +44,4 @@ $counter = count($_SESSION['cart']);
 
       </div>
    </header>
+   <main>

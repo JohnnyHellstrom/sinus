@@ -1,4 +1,8 @@
-
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 <fieldset>
   <legend>Update Product</legend>
   <form action="<?php $_SERVER['PHP_SELF']?>" enctype="multipart/form-data" method="post">

@@ -3,7 +3,7 @@ include('./adminSecurity.php');
 require('../classes/classDBClasses.php');
 include('./adminview/adminheader.php');
 
-$orderid = filter_input(INPUT_POST,'orderid', FILTER_VALIDATE_INT);
+$orderid = DataWash::testInput(filter_input(INPUT_POST,'orderid', FILTER_VALIDATE_INT));
 
 
 
@@ -11,7 +11,10 @@ $orderid = filter_input(INPUT_POST,'orderid', FILTER_VALIDATE_INT);
 
 if(isset($_POST['orderdetails'])){
    $orderdetail = OrderDetails::getOrdersDetails($orderid);
-   include('./adminview/adminviewOrderdetails.php');    
+   $customerEmail = Customer::getCustomerEmail($orderid);
+   $customer = Customer::retrieveCustomerInfo($customerEmail);  
+   include('./adminview/adminviewOrderdetails.php'); 
+   include('./adminview/adminviewCustomerinfo.php');   
 } else {
    $orders = Order::getAllOrders();
    include('./adminview/adminviewOrders.php');   

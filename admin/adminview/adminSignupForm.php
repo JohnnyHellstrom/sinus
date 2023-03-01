@@ -1,4 +1,9 @@
-<h2>Add another user:</h2>
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
+<h2>Add another user</h2>
 <body>   
    <main>
       <fieldset>                

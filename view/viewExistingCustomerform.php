@@ -1,8 +1,12 @@
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 
-<h2>Fill in your information</h2>
 
 <fieldset>
-  <legend></legend>
+    <h2>Fill in your information</h2><legend></legend>
   <form action="./customerinfo.php" method="post">
     <input type="hidden" name="action" value="oldcustomerinfo">
     <label for="firstname">First name:</label>

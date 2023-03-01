@@ -1,10 +1,1 @@
-- fixa så man inte kan lägga order med tom varukorg
-- emailfältet i admin customertabell
-- stora/små bokstäver i databas/på display  DONE
-- dokumentation för databas-script
-- skydda adminsidor     Doneish, får köra lite mer tester men borde funka nu
-- checkout page
-- bakgrund bilder/input
-- form på knapparna i admin, samt skall vi ha styling på headern?
-- utloggnings knapp
-- bilderna i footer samt icon i header(insta osv)
+- fråga Paul, extra bilder på varje produkt?

@@ -5,7 +5,13 @@
   position: relative;
   margin-top: 15px;
 }
-
+.product-container button{
+  width: 300px;
+}
+.product-container a{
+  text-decoration: none;
+  color: #1d1d1d;
+}
 
 .product-container img {
   height: 400px;
@@ -28,13 +34,25 @@
   gap: 0px 30px;
 }
 
+
 .extra-images{
+  margin: auto;
+  width: 85%; 
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  flex-grow: 1;
+}
+.extra-images form{
+  width: 25%;
 }
 
-.extra-images img{
-  width: 300px;
+
+.extra-images input{
+  width: 100%;
+  background: none;
+}
+.extra-images input:active{
+  border:none;
 }

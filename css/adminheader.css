@@ -1,0 +1,31 @@
+header{
+   display: flex;
+   justify-content: space-between;
+}
+
+
+.admin-nav{
+   margin-top: 1rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-grow: 1;
+   flex-wrap: wrap;
+   margin-bottom: 2rem;
+}
+.admin-header-button{
+   height: 3rem;
+   min-width: 20%;
+   margin: 1px;
+}
+.admin-header-button a{
+   color: #1d1d1d;
+   text-decoration: none;
+}
+nav form{
+   margin: 0;
+   min-width: 20%;
+}
+nav form button{
+   width: 100%;
+}

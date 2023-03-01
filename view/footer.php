@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="../css/main.css">
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
+</main>
 <footer>
 <section class="container">
             <article class="nav">

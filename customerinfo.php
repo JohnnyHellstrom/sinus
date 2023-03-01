@@ -28,8 +28,10 @@ switch($action)
     $customerId = $newCustomer->insertInfoToDB();
     break;
 }
-
-if(isset($customerId)){
+if(empty($_SESSION['cart'])){
+  $_SESSION['message'] = "You cannot place order with empty cart";
+  header('location:cart.php');
+} else if(isset($customerId) && isset($_SESSION['cart'])){
   $orderid = Order::insertNewOrder($customerId);
   foreach ($_SESSION['cart'] as $id => $qty) {
     Order::insertIntoOrderDetails($id, $orderid, $qty);
@@ -46,8 +48,10 @@ if(isset($customerId)){
   $oldCustomer = Customer::retrieveCustomerInfo($oldemail);
   include('./view/viewExistingCustomerform.php');
 
-} else {
+} else if(isset($_SESSION['cart'])) {
   include('./view/viewNewOrExistingCust.php');
+} else {
+  header('location:index.php');
 }
 
 

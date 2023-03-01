@@ -1,5 +1,10 @@
-<h2>All Orders:</h2>
-<table>
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
+<h2>All Orders</h2>
+<table class="cart-table">
    <thead>
       <tr>
          <th scope="col">Ordernumber</th>
@@ -20,7 +25,7 @@
             <td><?= $order->getOrderid() ?></td>
             <td><?= $orderdate->format('Y-m-d H:i') ?></td>
             <td><?= $order->getShipped() ?></td>
-            <td><input type="submit" name="orderdetails" value="🔍" style="background:none;"></input></td>
+            <td><input class="table-input-center" type="submit" name="orderdetails" value="🔍" style="background:none;"></input></td>
          </tr>
      
       </form>

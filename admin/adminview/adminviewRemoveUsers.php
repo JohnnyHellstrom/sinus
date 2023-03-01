@@ -1,3 +1,8 @@
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 <h2>Remove a User:</h2>
 <table class="cart-table">
 <thead>
@@ -16,7 +21,7 @@
       <td><?= $user->getUserid() ?></td>      
       <td><?= $user->getUsername() ?></td>
       <td>        
-        <input type="submit" name="edit" value="✏️" style="background:none;"></input>      
+        <input class="table-input-center" type="submit" name="edit" value="✏️" style="background:none;"></input>      
       </td>
    </tr>  
    </form>

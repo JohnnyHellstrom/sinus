@@ -1,3 +1,8 @@
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,26 +21,28 @@
 
    <?php 
    session_start();
-   if(isset($_SESSION['error']))
+   if(isset($_SESSION['error']) && !isset($_SESSION['user']))
    {
       echo 'something went wrong, try again!';      
    }
-   if(isset($_SESSION['cart'])){
+   if(!empty($_SESSION['cart'])){
       $_SESSION['message'] = 'you cannot login with something in your cart...';
       header('location: ../../cart.php');
    }
    ?>
 
    <main>      
-      <fieldset>         
+      <fieldset>
+         <legend>Login</legend>         
          <form method="post" action="../adminLogin.php">
          <label for="user">User</label>
          <input type="text" name="user" required>
          <label for="password">Password</label>
          <input type="password" name="password" required>
          <button>Submit</button>
-    </form>
+         </form>
       </fieldset>
+      <button><a href="../../index.php">Go to webshop</a></button>
    </main>   
 </body>
 </html>

@@ -1,4 +1,8 @@
-
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 
    <table class="cart-table">
    <thead>
@@ -32,8 +36,8 @@
          <td><?= $product->getPrice() ?></td>
          <td><?= $qty ?></td>
          <td><?= $qty * $product->getPrice() ?></td>
-         <td> <input type="submit" name="edit" value="✏️" style="background:none;"></input></td>
-         <td> <input type="submit" name="delete" value="♻️" style="background:none;"></input></td>
+         <td> <input type="submit" name="edit" value="✏️" style="background:none; margin:0 auto;"></input></td>
+         <td> <input type="submit" name="delete" value="♻️" style="background:none; margin:0 auto;"></input></td>
       </tr>  
       </form>
 
@@ -41,20 +45,20 @@
    </tbody>
    <tfoot>
       <tr>
-         <td>SUM</td>
+         <td><b>Your total</b></td>
          <td></td>
          <td></td>
          <td></td>
          <td></td>
-         <td><?= $total ?></td>
+         <td><b><?= $total ?></b></td>
          <td></td>
          <td></td>
       </tr>
    </tfoot>
 </table>
 <button>
-   <a href=".">Buy More Stuff</a>
+   <a class="cart-a" href=".">Buy More Stuff</a>
 </button>
 <button>
-   <a href="./customerinfo.php">Checkout 💸</a>
+   <a class="cart-a" href="./customerinfo.php">💸 Checkout</a>
 </button>

@@ -1,14 +1,16 @@
 <?php
-//require('classDB.php');
 
 class Image{
    private $productid;
    private $image;
+   private $extraimageid;
 
 
-   public function __construct($productid, $image){
+   public function __construct($productid, $image, $extraimageid = null){
       $this->productid = $productid;
       $this->image = $image;
+      $this->extraimageid = $extraimageid;
+
    }
    public static function getExtraImages($id){
       $conn = DB::connect();
@@ -19,7 +21,7 @@ class Image{
 
       if ($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
-            $image = new Image($row['productid'], $row['image']);
+            $image = new Image($row['productid'], $row['image'], $row['extraimagesid']);
             $extraimages[] = $image;     
          }
       } 
@@ -40,6 +42,13 @@ class Image{
       }  
       $conn->close();  
    }
+   public static function getExtraImage($extraimageid){
+      $conn = DB::connect();
+      $result = $conn->query("SELECT image FROM extraimages WHERE extraimagesid = $extraimageid");
+      $row = $result->fetch_assoc();
+      $conn->close();
+      return $row['image'];
+   }
 
    public static function addImage($imgContent, $id){
 
@@ -48,9 +57,9 @@ class Image{
       $insert = $conn->query("INSERT INTO images (image, productid) VALUES ('$imgContent', '$id')"); 
       
       if($insert){ 
-         echo "File uploaded successfully."; 
+         echo "<br>Image uploaded successfully."; 
       } else { 
-         echo "File upload failed, please try again."; 
+         echo "<br>Image upload failed, please try again."; 
       }
       $conn->close();  
 
@@ -97,5 +106,8 @@ class Image{
    }
    public function getProductid(){
       return $this->productid;
+   }
+   public function getExtraImageId(){
+      return $this->extraimageid;
    }
 }

@@ -95,6 +95,11 @@ class Product{
          echo $e->getMessage();
       }
       $id = $stmt->insert_id;
+      if($id){
+         echo '<br>Product added successfully';
+      } else {
+         echo '<br>Product not added. Try again';
+      }
       $stmt->close(); 
       $conn->close(); 
       return $id;

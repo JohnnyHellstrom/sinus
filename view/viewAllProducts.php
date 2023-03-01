@@ -1,29 +1,33 @@
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 
-<main>
 <section>
-   <fieldset>
-      <form  action="<?= $_SERVER['PHP_SELF'] ?>" method="get" >
-         <label class="display-inline" for="search">Search </label>
-         <input class="display-inline" type="text" name="search">
 
-         <label class="display-inline" for="categoryid">Category:</label>
-         <select class="display-inline" name="categoryid" id="categoryid">
-            <option selected value="">None</option>
-            <?php foreach($categories as $category){  ?>
-            <option value="<?= $category->getCategoryid() ?>"><?= ucfirst($category->getCategoryname()) ?></option>
-            <?php } ?>
-         </select>
+   <form class="search-form" action="<?= $_SERVER['PHP_SELF'] ?>" method="get" >
+      <label class="display-inline" for="search">Search </label>
+      <input class="display-inline" type="text" name="search">
 
-         <label class="display-inline" for="colorid">Color:</label>
-         <select class="display-inline" name="colorid" id="colorid">
-            <option selected value="">None</option>
-            <?php foreach($colors as $color){  ?>
-            <option value="<?= $color->getColorid() ?>"><?= ucfirst($color->getColorname()) ?></option>
-            <?php } ?>
-         </select>
-         <button class="display-inline">Search 🔍</button>
-      </form>  
-   </fieldset>
+      <label class="display-inline" for="categoryid">Category:</label>
+      <select class="display-inline" name="categoryid" id="categoryid">
+         <option selected value="">None</option>
+         <?php foreach($categories as $category){  ?>
+         <option value="<?= $category->getCategoryid() ?>"><?= ucfirst($category->getCategoryname()) ?></option>
+         <?php } ?>
+      </select>
+
+      <label class="display-inline" for="colorid">Color:</label>
+      <select class="display-inline" name="colorid" id="colorid">
+         <option selected value="">None</option>
+         <?php foreach($colors as $color){  ?>
+         <option value="<?= $color->getColorid() ?>"><?= ucfirst($color->getColorname()) ?></option>
+         <?php } ?>
+      </select>
+      <button class="display-inline">Search 🔍</button>
+   </form>  
+
 </section>
 
 <section class="product-cards">
@@ -51,5 +55,5 @@
    
 </section>
 
-</main>
+
 <?php

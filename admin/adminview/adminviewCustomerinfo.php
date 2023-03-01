@@ -1,5 +1,10 @@
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 <h2>Customer Information:</h2>
-<table>
+<table class="customer-table">
    <tr>
       <th scope="row">Name:</th>
       <td><?= $customer->getFirstName(). " " . $customer->getLastName() ?></td>

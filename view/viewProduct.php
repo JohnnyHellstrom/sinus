@@ -1,4 +1,8 @@
-
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
 <section class="displayproduct">
 
 <?php
@@ -7,8 +11,16 @@ $title = $product->getTitle();
 $color = $product->getColor();
 $price = $product->getPrice(); 
 $description = $product->getDescription();
-$image = $product->getImage();
-//$extraimages = Image::getExtraImages($id);
+
+if(isset($_POST['switchimage'])){
+   $image = Image::getExtraImage($_POST['switchimage']);
+} else {
+   $image = $product->getImage();
+}
+
+
+
+
 
 ?>
 
@@ -29,27 +41,37 @@ $image = $product->getImage();
          <option value="<?= $i ?>"><?= $i ?></option>
          <?php } ?>
       </select>
-      <button>Add to Cart 🛒</button>
+      <button>🛒 Add to Cart</button>
+      <button>
+         <a href=".">⬅️ Go back</a>
+      </button>
    </div>
+   
 </form>
 
-<div class="side-pictures">
-   <?php foreach ($othercolors as $other) { 
-      $otherid = $other->getProductid();
-      $otherimage = $other->getImage();?>
-      <form action="." method="post">
-      <input type="hidden" name="id" value="<?= $otherid ?>"> 
-      <input type="image" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($otherimage); ?>" alt="submit" style="width:100%; max-height: 100%">
-      </form>
-   <?php } ?>
+   <div class="side-pictures">
+      <?php foreach ($othercolors as $other) { 
+         $otherid = $other->getProductid();
+         $otherimage = $other->getImage();?>
+         <form action="." method="post">
+         <input type="hidden" name="id" value="<?= $otherid ?>"> 
+         <input type="image" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($otherimage); ?>" alt="submit" style="width:100%; max-height: 100%">
+         </form>
+      <?php } ?>
    </div>
 
 
    <div class="extra-images">
    <?php foreach ($extraimages as $extraimage) { 
-     $image_data = $extraimage->getImage();
+     $imagedata = $extraimage->getImage();
+     $extraimageid = $extraimage->getExtraImageId();
    ?>
-      <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image_data); ?>" alt="extraimage" class="extra-image">
+      <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+         <input type="hidden" name="switchimage" value="<?= $extraimageid ?>">
+         <input type="hidden" name="id" value="<?= $id ?>">  
+         <input type="image" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($imagedata); ?>" alt="submit">
+      </form>
+
    <?php } ?>
 </div>
 

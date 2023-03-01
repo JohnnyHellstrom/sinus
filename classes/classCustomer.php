@@ -88,7 +88,14 @@ class Customer{
     $sql->close();
     $conn->close(); 
 
-    return $lastId["customerid"];
+    return $lastId;
+  }
+
+  public static function getCustomerEmail($orderid){
+    $conn = DB::connect();
+    $result = $conn->query("SELECT c.email FROM customers c JOIN orders o ON o.customerid = c.customerid WHERE o.orderid = $orderid");
+    $row = $result->fetch_assoc();
+    return $row['email'];
   }
 
   public static function retrieveAllCustomers()
