@@ -3,7 +3,7 @@ include('./adminSecurity.php');
 require('../classes/classDBClasses.php');
 
 
-
+include('./adminview/adminheader.php');
 
 $color = DataWash::testInput(filter_input(INPUT_POST, 'color', FILTER_UNSAFE_RAW)); 
 $category = DataWash::testInput(filter_input(INPUT_POST, 'category', FILTER_UNSAFE_RAW)); 
@@ -23,7 +23,7 @@ $description = DataWash::testInput(filter_input(INPUT_POST, 'description', FILTE
 $colors = Color::getAllColors();
 $categories = Category::getAllCategories(); 
 
-include('./adminview/adminheader.php');
+
 
 if($title && $categoryid && $colorid && $price && $description){
    $produkt = new Product(0, $title, $categoryid, $colorid, $price, $description);

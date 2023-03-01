@@ -21,7 +21,7 @@ class DB{
       $datatype = gettype($value);
       $datatype = substr($datatype, 0, 1);
 
-      $conn = DB::connect();
+      $conn = self::connect();
       $stmt = $conn->prepare($sql);
       $stmt->bind_param("$datatype", $value);
       try{

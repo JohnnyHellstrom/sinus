@@ -66,17 +66,16 @@ class Product{
       $stmt->execute();
       $result = $stmt->get_result();
  
+      $allProducts = array();
       if ($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
             $product = new Product($row['productid'], $row['title'], $row['categoryname'], $row['colorname'], $row['price'], $row['description'], $row['image']);
             $allProducts[] = $product;     
          }
-         $conn->close();
-         return $allProducts;
-      } else {
-         $conn->close();
-         return array();
+
       } 
+      $conn->close();
+      return $allProducts;
    }
 
    public static function addProduct($product){
