@@ -12,7 +12,7 @@ $image = $product->getImage();
 
 ?>
 
-<form action="product.php" method="post">  
+<form action="./product.php" method="post">  
    <input type="hidden" value="buy">  
    <div class="product-container">
       <div>

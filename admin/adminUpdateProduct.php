@@ -1,9 +1,8 @@
 <?php
 
-//PROTECT PACE
-include('adminSecurity.php');
+include('./adminSecurity.php');
 require('../classes/classDBClasses.php');
-include('adminview/adminheader.php');
+include('./adminview/adminheader.php');
 
 $id = DataWash::testInput(filter_input(INPUT_POST, 'updateid', FILTER_VALIDATE_INT)); 
 $title = DataWash::testInput(filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW)); 
@@ -45,8 +44,8 @@ if(isset($_POST['edit'])){
    $product = Product::getProduct($_POST['id']);
    $colors = Color::getAllColors();
    $categories = Category::getAllCategories();
-   include('adminview/adminviewUpdateProduct.php');
+   include('./adminview/adminviewUpdateProduct.php');
 } else {
    $products = Product::getAllProducts();
-   include('adminview/adminviewAllProducts.php');
+   include('./adminview/adminviewAllProducts.php');
 }

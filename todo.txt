@@ -7,3 +7,4 @@
 - bakgrund bilder/input
 - form på knapparna i admin, samt skall vi ha styling på headern?
 - utloggnings knapp
+- bilderna i footer samt icon i header(insta osv)

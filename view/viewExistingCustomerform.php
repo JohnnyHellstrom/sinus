@@ -3,7 +3,7 @@
 
 <fieldset>
   <legend></legend>
-  <form action="customerinfo.php" method="post">
+  <form action="./customerinfo.php" method="post">
     <input type="hidden" name="action" value="oldcustomerinfo">
     <label for="firstname">First name:</label>
     <input type="text" name="firstname" value="<?= $oldCustomer->getFirstName() ?>" required>

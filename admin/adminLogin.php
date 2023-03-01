@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['user']))
 {
-  header('Location: adminview/adminloginform.php');
+  header('Location: ./adminview/adminloginform.php');
 }
 
 require('../classes/classDBClasses.php');
@@ -20,5 +20,5 @@ require('../classes/classDBClasses.php');
  
 
 
-  header('location: index.php');
+  header('location: ./index.php');
 ?>

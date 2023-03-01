@@ -1,7 +1,7 @@
 <?php
 session_start();
-require('classes/classDBClasses.php');
-include('view/header.php');
+require('./classes/classDBClasses.php');
+include('./view/header.php');
 
 
 $searchword = DataWash::testInput(filter_input(INPUT_GET, 'search', FILTER_UNSAFE_RAW));

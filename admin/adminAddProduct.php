@@ -1,8 +1,8 @@
 <?php
-include('adminSecurity.php');
+include('./adminSecurity.php');
 require('../classes/classDBClasses.php');
-include('adminview/adminheader.php');
-include('adminview/adminviewAddNewProduct.php');
+include('./adminview/adminheader.php');
+include('./adminview/adminviewAddNewProduct.php');
 
 $color = DataWash::testInput(filter_input(INPUT_POST, 'color', FILTER_UNSAFE_RAW)); 
 $category = DataWash::testInput(filter_input(INPUT_POST, 'category', FILTER_UNSAFE_RAW)); 

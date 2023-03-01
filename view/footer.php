@@ -7,7 +7,7 @@
                     <li><a href=".">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="admin/adminview/adminLoginForm.php">Login</a></li>
+                    <li><a href="./admin/adminview/adminLoginForm.php">Login</a></li>
                 </ul>   
           
             </article>
@@ -24,9 +24,9 @@
             <article class="social-media">   
                <h2>Social Media</h2>
                <div class="social-icons-container">
-               <a href="https://twitter.com/" target="_blank"><img src="images/logo-twitter.svg" alt="twitter logo"></a>
-               <a href="https://facebook.com/" target="_blank"><img src="images/logo-facebook.svg" alt="facebook logo"></a>
-               <a href="https://instagram.com/" target="_blank"><img src="images/logo-instagram.svg" alt="instagram logo"></a>
+               <a href="https://twitter.com/" target="_blank"><img src="./images/logo-twitter.svg" alt="twitter logo"></a>
+               <a href="https://facebook.com/" target="_blank"><img src="./images/logo-facebook.svg" alt="facebook logo"></a>
+               <a href="https://instagram.com/" target="_blank"><img src="./images/logo-instagram.svg" alt="instagram logo"></a>
                </div>
             </article>
 </footer>

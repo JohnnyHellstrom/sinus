@@ -1,5 +1,5 @@
 <?php
-include('adminSecurity.php');
+include('./adminSecurity.php');
 require('../classes/classDBClasses.php');
 $customerEmail = filter_input(INPUT_POST,'mail',FILTER_VALIDATE_EMAIL);
 

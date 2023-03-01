@@ -5,11 +5,11 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-   <link rel="stylesheet" href="css/header.css">
-   <link rel="stylesheet" href="css/viewproduct.css">
-   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="./css/header.css">
+   <link rel="stylesheet" href="./css/viewproduct.css">
+   <link rel="stylesheet" href="./css/main.css">
    <title>Sinus Webshop</title>
-   <link rel="icon" href="images/sinus-logo-symbol - small.png">
+   <link rel="icon" href="./images/sinus-logo-symbol - small.png">
 </head>
 
 

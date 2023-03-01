@@ -11,5 +11,5 @@ if(isset($_SESSION["cart"])){
    $_SESSION["cart"] = array($_SESSION["product"] => (int)$_POST['quantity']);
 }
 
-header("location:index.php");
+header("location:./index.php");
 ?>

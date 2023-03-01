@@ -56,5 +56,5 @@
    <a href=".">Buy More Stuff</a>
 </button>
 <button>
-   <a href="customerinfo.php">Checkout 💸</a>
+   <a href="./customerinfo.php">Checkout 💸</a>
 </button>
