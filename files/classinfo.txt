@@ -1,0 +1,15 @@
+Short info about the classes (alt-z for text to wrap)
+
+We have choosen to only use static classes for consistency and because we rarely felt the need for dynamic classes and instances of objects
+
+-----------------------------
+classAdminlogin:
+The file contains both the user-class and the removeUser-class. Handels admin users and login/logout methods and their connection towards database.
+
+classCategory and classColor:
+Small classes to handle input of new categories, colors or motives to the DB and also retrieving the lists of all of them for displaying select-lists
+
+classCustomer:
+Object and methods for inserting and retriving Customerinformation
+
+

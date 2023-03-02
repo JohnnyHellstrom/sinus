@@ -24,7 +24,7 @@
          <tr>
             <td><?= $order->getOrderid() ?></td>
             <td><?= $orderdate->format('Y-m-d H:i') ?></td>
-            <td><?= $order->getShipped() ?></td>
+            <td> 🚢 </td>
             <td><input class="table-input-center" type="submit" name="orderdetails" value="🔍" style="background:none;"></input></td>
          </tr>
      
