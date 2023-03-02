@@ -7,7 +7,7 @@ Diskuterar syntax skrivandet, men märker rätt fort att vi tänker i samma bano
 Johnny hade redan satt upp en design på databasen på whiteboard när Peter å Tobias kom till skolan. Så blev en relativt kort konversation om den,
 den såg redan bra ut så behövde inte diskutera mer om den.
 
-Sätter upp den, och gjorde någto mer....
+sätter upp databasen får igång den.
 
 avslutar dagen med få igång git för gruppen, och bestämmer att vi samlas på plats i Uddevalla nästa dag.
 
@@ -23,23 +23,34 @@ dag 3, fredag:
 Jobbat lite med headern, att få kundvagnen att displaya.
 hittat lite med requires som vi fick löst, färdigställt lite formulär, lagt till mer funktionalitet för admin delen, att man kan lägga in produkter, färg/kategori. lite snickeri helt enkelt har dagen varit.
 
+dag 4-5 lördag, söndag:
 
--- ta upp varför, vi plockar fram datan jämtemot email adress, förstå faran med varför vi gör så här istället för å ha login.
+individuellt arbete, fixade iordning lite små funktioner.
+försökte få igång php mailer grejen, fick igång det skickade mail, så det stylades till så att det skulle se bra ut, men...
+se nästa dags info...
 
--- Bra sen om vi orkar skydda sidorna. Alla admin ifall man inte är inloggad. Sen redirects på alla views osv 
+dag 6, måndag: 
 
-
-dag 4, måndag: 
+var på plats, i Uddevalla.
 
 bra jobbat, fick iordning på sök å filter funktionen. dagen var lite trög men det vi satt å jobbade fick vi löst. peter försökte få igång mailfunktionen men det var ngt konflikt med porten som mailen skulle skicka via.
 
-dag 5, tisdag:
+dag 7, tisdag:
 
+individuellt arbete, bild styling,  vg uppgift med fixa iordning extra bilder till en produkt avklarad.
+fick igång adminsystemet, så att man kan vara inloggad.
 
-lägg till en log out knapp.
+dag 8, onsdag:
 
-lägg till en go back knapp när man är inne på produkter
+Gruppen var på plats i Uddevalla.
 
+dagens punkter var att fixa till styling och små buggar vi kunde hitta. fixade iordning så att sidorna skall vara skyddade.
+lite små pill här å var.
 
-ctrl + f i my.ini i xampp config databas
-man söker max_allowed_packet å ändra 1an till en 10a
+dag 9, torsdag:
+
+redovisning, efteråt pillar med dokumentation. fick även bilder ifrån grupp Mad Masters så att våra produkter blir snyggare, som läggs in.
+
+dag 10, fredag: 
+
+en sista koll på att allt som skall vara med finns med. inlämning...
