@@ -2,8 +2,7 @@ header{
    display: flex;
    justify-content: space-between;
 }
-
-
+/* the different buttons used to navigate the admin page */
 .admin-nav{
    margin-top: 1rem;
    display: flex;

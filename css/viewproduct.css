@@ -21,7 +21,7 @@
 .product-container p{
   margin: 0;
 }
-
+/* the side pictures of the items of same category as the product */
 .side-pictures{
   width: 10px;
   height: 700px;
@@ -34,7 +34,7 @@
   gap: 0px 30px;
 }
 
-
+/* the extra images of the product */
 .extra-images{
   margin: auto;
   width: 85%; 
