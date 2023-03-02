@@ -15,7 +15,7 @@ $country = DataWash::testInput(filter_input(INPUT_POST, 'country', FILTER_UNSAFE
 $oldemail = DataWash::testInput(filter_input(INPUT_POST, 'oldemail', FILTER_SANITIZE_EMAIL));
 
 include('./view/header.php');
-
+//check wheter it's a new or returning customer
 switch($action)
 {
   case 'oldcustomerinfo':
@@ -28,6 +28,7 @@ switch($action)
     $customerId = $newCustomer->insertInfoToDB();
     break;
 }
+//cannot place a order with empty cart
 if(empty($_SESSION['cart'])){
   $_SESSION['message'] = "You cannot place order with empty cart";
   header('location:cart.php');
