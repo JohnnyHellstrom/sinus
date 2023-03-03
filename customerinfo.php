@@ -1,8 +1,8 @@
 <?php
 require_once('./classes/classDBClasses.php');
-
 session_start();
 
+// our way of washing the data
 $action = DataWash::testInput(filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW)); 
 $firstname = DataWash::testInput(filter_input(INPUT_POST, 'firstname', FILTER_UNSAFE_RAW)); 
 $lastname = DataWash::testInput(filter_input(INPUT_POST, 'lastname', FILTER_UNSAFE_RAW)); 
@@ -23,7 +23,8 @@ switch($action)
     $customerId = Customer::retrieveCustomerId($email);  
     break;
 
-  case 'newcustomerinfo':
+    // if its a new customer we get their input and stoes it in the db
+  case 'newcustomerinfo':  
     $newCustomer = new Customer(ucfirst($firstname), ucfirst($lastname), strtolower($email), $phone, ucfirst($streetadress), $zipcode, ucfirst($city), ucfirst($country));
     $customerId = $newCustomer->insertInfoToDB();
     break;
@@ -41,20 +42,26 @@ if(empty($_SESSION['cart'])){
   include('./view/viewCheckout.php');
   unset($_SESSION);
   session_destroy();
-
-} else if(isset($_POST['newcustomer'])){
+} 
+// self explanatory what happens, but depending on what the customer chooses a different view will be shown.
+else if(isset($_POST['newcustomer']))
+{
   include('./view/viewNewCustomerform.php');
 
-} else if(isset($_POST['existingcustomer'])){
+} 
+else if(isset($_POST['existingcustomer']))
+{
   $oldCustomer = Customer::retrieveCustomerInfo($oldemail);
   include('./view/viewExistingCustomerform.php');
 
-} else if(isset($_SESSION['cart'])) {
+} 
+else if(isset($_SESSION['cart'])) 
+{
   include('./view/viewNewOrExistingCust.php');
-} else {
+} 
+else 
+{
   header('location:index.php');
 }
-
-
 
 include('./view/footer.php');

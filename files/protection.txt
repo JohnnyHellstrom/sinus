@@ -1,0 +1,20 @@
+
+For Protecting our webshop:
+
+we are using:
+
+<?php
+  if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
+    header('location:../index.php');
+  };
+?>
+
+to protect so that anyone cannot directly access our views/pages without our consent, or not without going the correct way.
+
+protection on the admin stuff is: (not on the views.. then we are using the above.)
+
+session_start();
+if(!isset($_SESSION['user']))
+{
+  header('Location: ./adminview/adminloginform.php');
+}

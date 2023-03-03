@@ -5,11 +5,9 @@
 ?>
 
 <section>
-
    <form class="search-form" action="<?= $_SERVER['PHP_SELF'] ?>" method="get" >
       <label class="display-inline" for="search">Search </label>
       <input class="display-inline" type="text" name="search">
-
       <label class="display-inline" for="categoryid">Category:</label>
       <select class="display-inline" name="categoryid" id="categoryid">
          <option selected value="">None</option>
@@ -17,7 +15,6 @@
          <option value="<?= $category->getCategoryid() ?>"><?= ucfirst($category->getCategoryname()) ?></option>
          <?php } ?>
       </select>
-
       <label class="display-inline" for="colorid">Color:</label>
       <select class="display-inline" name="colorid" id="colorid">
          <option selected value="">None</option>
@@ -26,12 +23,10 @@
          <?php } ?>
       </select>
       <button class="display-inline">Search 🔍</button>
-   </form>  
-
+   </form>
 </section>
 
 <section class="product-cards">
-
       <?php
       foreach ($products as $product) { 
       $id = $product->getProductid();
@@ -51,8 +46,7 @@
             <p><?= $color ?></p>
          </div>
       </form>
-      <?php } ?>
-   
+      <?php } ?>   
 </section>
 
 

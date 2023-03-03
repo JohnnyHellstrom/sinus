@@ -29,7 +29,7 @@ $counter = count($_SESSION['cart']);
 
 ?>
    <header>
-   <a href="." class="image"><img src="images/sinus-logo-landscape -  small.png"></a>
+      <a href="." class="image"><img src="images/sinus-logo-landscape -  small.png"></a>
       <h1>Sinus Skate and Apperal Shop</h1>
       <div class="cart">
         <a href="cart.php"> 🛒 </a>
@@ -41,7 +41,6 @@ $counter = count($_SESSION['cart']);
         </div>
         </a>
         <?php endif; ?>
-
       </div>
    </header>
    <main>

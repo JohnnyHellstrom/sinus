@@ -5,10 +5,6 @@ include('./adminview/adminheader.php');
 
 $orderid = DataWash::testInput(filter_input(INPUT_POST,'orderid', FILTER_VALIDATE_INT));
 
-
-
-
-
 if(isset($_POST['orderdetails'])){
    $orderdetail = OrderDetails::getOrdersDetails($orderid);
    $customerEmail = Customer::getCustomerEmail($orderid);

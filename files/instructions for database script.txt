@@ -7,18 +7,4 @@ you will land on the first max_allowed_packet=1M
 change this setting from 1M to 10M
 and our database script will work correctly... we hope...
 
-
-
-
-# The MySQL server
-default-character-set=utf8mb4
-[mysqld]
-port=3306
-socket="C:/xampp/mysql/mysql.sock"
-basedir="C:/xampp/mysql"
-tmpdir="C:/xampp/tmp"
-datadir="C:/xampp/mysql/data"
-pid_file="mysql.pid"
-# enable-named-pipe
-key_buffer=16M
 max_allowed_packet=1M  <----------- change this setting here. from 1M to 10M

@@ -23,13 +23,10 @@ $description = DataWash::testInput(filter_input(INPUT_POST, 'description', FILTE
 $colors = Color::getAllColors();
 $categories = Category::getAllCategories(); 
 
-
-
 if($title && $categoryid && $colorid && $price && $description){
    $produkt = new Product(0, $title, $categoryid, $colorid, $price, $description);
    $id = Product::addProduct($produkt);
 }
-
 
 // Check image and insert image and productid to imagetable.
 if(!empty($_FILES["image"]["name"])) { 

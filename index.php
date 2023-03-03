@@ -3,11 +3,10 @@ session_start();
 require('./classes/classDBClasses.php');
 include('./view/header.php');
 
-
+// datawash, but also a way of controlling that they are ints
 $searchword = DataWash::testInput(filter_input(INPUT_GET, 'search', FILTER_UNSAFE_RAW));
 $categoryid = filter_input(INPUT_GET,'categoryid',FILTER_VALIDATE_INT);
 $colorid = filter_input(INPUT_GET,'colorid',FILTER_VALIDATE_INT);
-
 $productid = filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);
 
 if($productid){

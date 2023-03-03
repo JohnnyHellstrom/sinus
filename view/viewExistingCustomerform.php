@@ -4,7 +4,6 @@
   };
 ?>
 
-
 <fieldset>
     <h2>Fill in your information</h2><legend></legend>
   <form action="./customerinfo.php" method="post">

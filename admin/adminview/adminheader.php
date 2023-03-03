@@ -9,7 +9,6 @@
    <link rel="stylesheet" href="../css/adminheader.css">
    <link rel="icon" href="../images/sinus-logo-symbol - small.png"> 
    <title>Sinus Webshop - Admin View</title>
-
 </head>
 <header>
    <img src="../images/sinus-logo-landscape -  small.png" alt="logo">
@@ -43,6 +42,5 @@
       <input type="hidden" name="logout">
       <button class="admin-header-button">Log out</button>
    </form>
-
 </nav>
 

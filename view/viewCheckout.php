@@ -4,9 +4,7 @@
   };
 ?>
 
-
 <h2>Stuff ordered</h2>
-
 <table class="cart-table">
 <thead>
    <tr>
@@ -19,14 +17,13 @@
       <th scope="col">Total</th>   
    </tr>
 </thead>
-<tbody>    
-
+<tbody>  
    <?php 
    $total = 0 ;
    foreach($orderdetail as $order){ 
    $product = Product::getProduct($order->getProductid());
    $image = $product->getImage();
-   ?>   
+   ?>  
    
    <tr>
       <td><?= $orderid ?></td>
@@ -39,8 +36,7 @@
       <td><?= $order->getQuantity()  ?></td>
       <td><?= $order->getQuantity() * $product->getPrice() ?></td>
    </tr>
-      <br>
-
+   <br>
    <?php $total += $order->getQuantity() * $product->getPrice(); } ?>    
    <tr>
       <td><b>Your total</b></td>
