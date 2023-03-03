@@ -13,8 +13,6 @@ body{
 main{
    min-height: 65vh;
 }
-
-
 .image-container input{
    background: none;
 }
@@ -30,7 +28,6 @@ fieldset{
    margin: auto;
 }
 
-
 /* TABLES */
 .customer-table{
    width: 50%;
@@ -41,7 +38,7 @@ fieldset{
    vertical-align: middle;
    text-align: center;
 }
-.cart-a{
+.cart-a, .index-button{
    text-decoration: none;
    color: #1d1d1d;
 }
@@ -50,17 +47,10 @@ fieldset{
    background: none;
 }
 
-.index-button{
-   text-decoration: none;
-   color: #1d1d1d;
-}
-
-
 /* VIEW ALL PRODUCTS */
 .search-form{
    width: 99%;
    margin: 0.5rem;
-
 }
 .card input[type=image]{
    margin: 0;
@@ -98,7 +88,6 @@ fieldset{
 .new-or-old-cust{
    width: 50%;
    margin: 0 auto;
-
 }
 .new-or-old-cust fieldset{
    width: 100%;
@@ -115,7 +104,3 @@ input[type=text]{
 .display-inline{
   display: inline-block;
 }
-
-
-
-
