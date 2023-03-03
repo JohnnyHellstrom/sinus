@@ -1,6 +1,5 @@
 <?php
 
-
 class Color{
    private  $colorid;
    private  $colorname;

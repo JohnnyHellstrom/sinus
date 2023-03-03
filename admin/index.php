@@ -1,9 +1,6 @@
 <?php
 
-
-
 include('./adminSecurity.php');
-
 
 if(isset($_POST['logout'])){
    unset($_SESSION);

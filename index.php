@@ -31,8 +31,5 @@ if($productid){
    } 
 }
 
-
-
-
 include('./view/footer.php');
 ?>

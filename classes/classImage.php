@@ -10,8 +10,8 @@ class Image{
       $this->productid = $productid;
       $this->image = $image;
       $this->extraimageid = $extraimageid;
-
    }
+
    public static function getExtraImages($id){
       $conn = DB::connect();
 
@@ -26,8 +26,7 @@ class Image{
          }
       } 
       $conn->close();
-      return $extraimages;
-      
+      return $extraimages;      
    }
 
    public static function addExtraImage($imgContent, $id){
@@ -98,8 +97,7 @@ class Image{
 
       $stmt->close();
       $conn->close();
-      return $images;
-   
+      return $images;   
    }
    public function getImage(){
       return $this->image;

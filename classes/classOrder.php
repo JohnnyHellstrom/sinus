@@ -1,6 +1,5 @@
 <?php
 
-
 class Order{
   private $orderid;
   private $customerid;

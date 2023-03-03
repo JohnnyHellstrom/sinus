@@ -1,10 +1,6 @@
 <?php
-//require_once('classDB.php');
 
-
-class Customer{
-
- 
+class Customer{ 
   private $firstName;
   private $lastName;
   private $email;
@@ -82,7 +78,7 @@ class Customer{
     $country = $this->getCountry();    
 
     $sql->execute();   
-     // selecting the scope_identity , last inputed into the vehiclearchive
+     // selecting the scope_identity, last input into the customer database so we can utilize it after
     $lastId = $sql->insert_id; 
 
     $sql->close();

@@ -10,8 +10,7 @@ class User
     $this->username = $username;
     $this->userPassword = $userPassword;
   }
-
-
+  
   public function getUsername()
   {
     return $this->username;
@@ -22,6 +21,7 @@ class User
     return $this->userPassword;
   }
 
+  // function for saving the new admin and hashing the password for storing
   public function createAccount(){
     $mysqli = DB::connect();
     if($mysqli->connect_error)
@@ -41,7 +41,8 @@ class User
     $statement->close();
     $mysqli->close();     
   }
-   
+  
+  // function for retrieving the user and password then verfifying the password to see if they match
   public function loginWithAccount(){
     $mysqli = DB::connect();      
       

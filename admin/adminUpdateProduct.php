@@ -11,9 +11,6 @@ $colorid = (int)DataWash::testInput(filter_input(INPUT_POST, 'colorid', FILTER_V
 $price = (float)DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT)); 
 $description = DataWash::testInput(filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW)); 
 
-
-
-
 if($id && $title && $categoryid && $colorid && $price && $description){
    $alteredproduct = new Product($id, $title, $categoryid, $colorid, $price, $description);
    Product::updateProduct($alteredproduct);   
@@ -34,7 +31,6 @@ if(!empty($_FILES["image"]["name"])) {
       } elseif ($_POST['action'] == 'addimage'){
          Image::addExtraImage($imgContent, $id);
       }
-
 
    } else { 
       echo 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
