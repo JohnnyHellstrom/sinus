@@ -1,7 +1,7 @@
 
 For Protecting our webshop:
 
-we are using:
+we are using: (read this article for it, https://www.codespeedy.com/disable-direct-access-to-the-php-include-file/ )
 
 <?php
   if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
