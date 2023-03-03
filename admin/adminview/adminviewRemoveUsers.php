@@ -21,7 +21,7 @@
       <td><?= $user->getUserid() ?></td>      
       <td><?= $user->getUsername() ?></td>
       <td>        
-        <input class="table-input-center" type="submit" name="edit" value="✏️" style="background:none;"></input>      
+        <input class="table-input-center" type="submit" name="edit" value="☠️" style="background:none;"></input>      
       </td>
    </tr>  
    </form>

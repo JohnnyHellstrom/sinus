@@ -48,6 +48,3 @@
       </form>
       <?php } ?>   
 </section>
-
-
-<?php

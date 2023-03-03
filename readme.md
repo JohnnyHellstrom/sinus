@@ -13,4 +13,4 @@
 
   max_allowed_packet=1M  <----------- change this setting here. from 1M to 10M)
 
-2.
+2. More infomation in textfiles in folder files.

@@ -6,9 +6,9 @@ include('./adminview/adminheader.php');
 
 $id = DataWash::testInput(filter_input(INPUT_POST, 'updateid', FILTER_VALIDATE_INT)); 
 $title = DataWash::testInput(filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW)); 
-$categoryid = (int)DataWash::testInput(filter_input(INPUT_POST, 'categoryid', FILTER_VALIDATE_INT)); 
-$colorid = (int)DataWash::testInput(filter_input(INPUT_POST, 'colorid', FILTER_VALIDATE_INT)); 
-$price = (float)DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT)); 
+$categoryid = DataWash::testInput(filter_input(INPUT_POST, 'categoryid', FILTER_VALIDATE_INT)); 
+$colorid = DataWash::testInput(filter_input(INPUT_POST, 'colorid', FILTER_VALIDATE_INT)); 
+$price = DataWash::testInput(filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT)); 
 $description = DataWash::testInput(filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW)); 
 
 if($id && $title && $categoryid && $colorid && $price && $description){
@@ -16,6 +16,7 @@ if($id && $title && $categoryid && $colorid && $price && $description){
    Product::updateProduct($alteredproduct);   
 } 
 
+//Check if image is valid and inserts
 if(!empty($_FILES["image"]["name"])) { 
    // Get file info 
    $fileName = basename($_FILES["image"]["name"]); 
@@ -36,6 +37,7 @@ if(!empty($_FILES["image"]["name"])) {
       echo 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
    } 
 } 
+//Displays one product if selected else all products
 if(isset($_POST['edit'])){
    $product = Product::getProduct($_POST['id']);
    $colors = Color::getAllColors();

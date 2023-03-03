@@ -33,8 +33,8 @@ $counter = count($_SESSION['cart']);
       <h1>Sinus Skate and Apperal Shop</h1>
       <div class="cart">
         <a href="cart.php"> 🛒 </a>
-        <!-- Whole counter div clickable -->
-        <?php if($counter !=0) : ?>
+
+        <?php /* Whole counter div clickable */ if($counter !=0) : ?>
         <a href="cart.php">
         <div class="counter">
          <p><?= $counter ?></p>
