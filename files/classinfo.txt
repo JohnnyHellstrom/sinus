@@ -12,4 +12,25 @@ Small classes to handle input of new categories, colors or motives to the DB and
 classCustomer:
 Object and methods for inserting and retriving Customerinformation
 
+classDataWash:
+Only contains a method for washing user input
+
+classDB:
+Creates and return DB connection and also a helpfunction for insertstatements
+
+classDBClasses:
+Is used to require all other classes to make them accessable without require_once or conflicts
+
+classImage:
+Methods for inserting and retrieving images
+
+classOrder:
+object and methods for inserting and retriving order information
+
+classOrderDetails:
+Methods for inserting and retriving orderdetails information
+
+classProduct:
+Object and methods for displaying 1, all or filtered/searched products. Also joins image,color,category tables to retrive or insert all info about a product.
+
 
