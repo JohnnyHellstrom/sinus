@@ -33,7 +33,7 @@ if(isset($_POST['delete']) && ($_POST['delete'] == "♻️")){
 }
 echo '<br><br><br><br>';
 require('./view/viewCart.php');
-// displays if you try to login with something in your cart
+// displays if you try to login with something in your cart, or if you try to check out with an empty cart.
 if(isset($_SESSION['message'])){
    echo '<h2>' . $_SESSION['message'] . '</h2>';
    unset($_SESSION['message']);
